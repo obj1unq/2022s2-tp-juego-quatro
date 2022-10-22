@@ -6,7 +6,7 @@ class Celda{
 	var property contenido = null
 	
 	method caracteristicas(){
-		return if (contenido) contenido.caracteristicas() else [] 
+		return if (contenido != null) contenido.caracteristicas().asSet() else #{} 
 	}	
 }
 
