@@ -1,4 +1,10 @@
 # Nombre del juego (<- borrar y completar)
+Ideas:
+- clase pieza con un set de caracteristicas. 
+- modelar tablero, con clase celda puede tener pieza, 
+- clase pieza, 
+- clase fila, 
+- Y un objeto "juego" que itera por todas las filas para ver si se gano
 
 ## Equipo de desarrollo
 
