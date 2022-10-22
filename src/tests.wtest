@@ -1,6 +1,79 @@
+import celda.*
+import pieza.*
+import fila.*
+import quatro.*
 
-test "testX" {
+describe "pruebas de esVictoria"{
+	
+	const pieza1 = new Pieza()
+	const pieza2 = new Pieza()
+	const pieza3 = new Pieza()
+	const pieza4 = new Pieza()
+	
+	const celda1 = new Celda()
+	const celda2 = new Celda()
+	const celda3 = new Celda()
+	const celda4 = new Celda()
+	
+	method initialize(){		
+		pieza1.caracteristicas([blanca, lisa, cuadrada, alta])
+		pieza2.caracteristicas([blanca, tallada, cilindrica, baja])
+		pieza3.caracteristicas([blanca, tallada, cuadrada, baja])
+		pieza4.caracteristicas([blanca, lisa, cilindrica, baja])
 
-	assert.that(true)
-
+		celda1.contenido(pieza1)
+		celda2.contenido(pieza2)
+		celda3.contenido(pieza3)
+		celda4.contenido(pieza4)
+	}
+	
+	test "test donde hay coindencias de caracteristiscas y hay victoria" {
+		const fila = new Fila(celdas=#{celda1, celda2, celda3, celda4})
+		assert.that(fila.esVictoria())
+	}
+	
+	test "test donde no hay coincidencias de caracteristicas por lo que no hay victoria"{
+		const fila = new Fila(celdas=#{celda1, celda2, celda3, celda4})
+		pieza4.caracteristicas([negra, lisa, cilindrica, baja])
+		assert.notThat(fila.esVictoria())
+	}
+	
+	test "test donde una celda esta vacia, por ende no hay victoria"{
+		const fila = new Fila(celdas=#{celda1, celda2, celda3, celda4})
+		celda4.contenido(null)
+		assert.notThat(fila.esVictoria())
+	}
+	
+	test "test donde hay 3 celdas en una fila y falla"{
+		const fila = new Fila()
+		assert.throwsException({ fila.celdas(#{celda1, celda2, celda3}) })
+	}
+	
+	test "test donde hay 3 caracteristicas en una pieza y falla"{
+		const pieza5 = new Pieza()
+		assert.throwsException({ pieza5.caracteristicas([blanca, lisa, cuadrada]) })
+	}
+	
+	test "test donde el juego revisa si hay fila ganadora y la fila1 lo es"{
+		const fila1 = new Fila(celdas=#{celda1, celda2, celda3, celda4})
+		
+		const celda5 = new Celda()
+		const celda6 = new Celda()
+		const celda7 = new Celda()
+		const fila2 = new Fila(celdas=#{celda1, celda5, celda6, celda7})
+		quatro.filas(#{fila1, fila2})
+		assert.that(quatro.hayFilaGanadora())
+	}
+	
+	test "test donde el juego revisa las 2 filas y ninguna es ganadora"{
+		const celda5 = new Celda()
+		const celda6 = new Celda()
+		const celda7 = new Celda()
+		const celda8 = new Celda()
+		
+		const fila1 = new Fila(celdas=#{celda1, celda8, celda3, celda4})
+		const fila2 = new Fila(celdas=#{celda1, celda5, celda6, celda7})
+		quatro.filas(#{fila1, fila2})
+		assert.notThat(quatro.hayFilaGanadora())
+	}
 }
