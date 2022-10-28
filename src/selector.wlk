@@ -1,4 +1,31 @@
 import wollok.game.*
+import tablero.*
+
+object selector{
+	var property tablero = tableroQuatro
+	var property position = tablero.coordenadaInicial()
+	
+	method image() = "pepita.png"
+	
+	method mover(direccion){
+		const paso = 3
+		const nuevaPos = direccion.siguientes(position, paso)
+		position = game.at(self.nuevoX(nuevaPos.x()), self.nuevoY(nuevaPos.y()))
+		game.say(self, "x: " + position.x() + " y:" + position.y())
+	}
+	
+	method nuevoX(xAMover){
+		return xAMover.max(tablero.coordenadaInicial().x()).min(tablero.coordenadaFinal().x())
+	}
+	
+	method nuevoY(yAMover){
+		return yAMover.max(tablero.coordenadaInicial().y()).min(tablero.coordenadaFinal().y())
+	}
+	
+	method ubicarEnPosicionInicial(nuevaPos){
+		self.position(nuevaPos)
+	}
+}
 
 object selectorDePieza {
 	// Va a variar de acuerdo al tablero final

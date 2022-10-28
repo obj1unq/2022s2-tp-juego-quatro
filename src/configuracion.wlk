@@ -1,16 +1,20 @@
 import wollok.game.*
 import pieza.*
+import caracteristicas.*
 import direcciones.*
+import selector.*
+import quatro.*
 
-object pepita{
-	var property position = game.at(25,4)
-	method image() = "pepita.png"
-	
-	method mover(direccion){
-		const paso = 3
-		position = direccion.siguientes(position, paso)
-	}
-}
+//object pepita{
+//	var property position = game.at(25,4)
+//	method image() = "pepita.png"
+//	
+//	method mover(direccion){
+//		const paso = 3
+//		position = direccion.siguientes(position, paso)
+//		game.say(self, "x: " + position.x() + " y:" + position.y())
+//	}
+//}
 
 object configuracion {
 	const pieza1 = new Pieza()
@@ -60,7 +64,7 @@ object configuracion {
 		game.addVisual(pieza6)
 		game.addVisual(pieza7)
 		game.addVisual(pieza8)
-		game.addVisual(pepita)
+		game.addVisual(selector)
 	}
 	
 	method ubicarPiezas(){
@@ -72,14 +76,14 @@ object configuracion {
 		pieza6.position(game.at(28,7))
 		pieza7.position(game.at(31,7))
 		pieza8.position(game.at(34,7))
-		
 	}
 	
 	method configurarTeclas(){
-		keyboard.left().onPressDo( { pepita.mover(izquierda) }  )
-		keyboard.right().onPressDo( { pepita.mover(derecha) }  )
-		keyboard.up().onPressDo( { pepita.mover(arriba) }  )
-		keyboard.down().onPressDo( { pepita.mover(abajo) }  )
+		keyboard.left().onPressDo( { selector.mover(izquierda) }  )
+		keyboard.right().onPressDo( { selector.mover(derecha) }  )
+		keyboard.up().onPressDo( { selector.mover(arriba) }  )
+		keyboard.down().onPressDo( { selector.mover(abajo) }  )
+		keyboard.p().onPressDo( { quatro.ponerPieza()})
 	}	
 	
 }

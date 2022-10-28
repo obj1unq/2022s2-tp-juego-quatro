@@ -1,5 +1,5 @@
 import selector.*
-
+import jugador.*
 // Quatro seria nuestro main Character, ya que sabe cual es el selector a utilizar en el juego
 // Quatro tiene el jugador actual, jugador 1 y 2 son objetos
 // Cada jugador hereda de una clase jugadorBase, cada jugador tendria un metodo seleccionar tablero rival
@@ -9,15 +9,23 @@ import selector.*
 // jugador
 object quatro {
 	var property filas = #{}
-	var selector = selectorDePieza
+	const selectorActual = selector
+	var jugadorActual = jugadorBlanco
 	
 	method hayFilaGanadora(){
 		return filas.any({ fila => fila.esVictoria() })
 	} 
 	
-	method cambiarSelector(){
-		selector.operarConPieza()
-		selector = selector.otroSelector()
+	method ponerPieza(){
+		//selector.poner()
+		jugadorActual = jugadorActual.otroJugador()
+		selectorActual.tablero(jugadorActual.otroTablero())
+		selectorActual.ubicarEnPosicionInicial(jugadorActual.otroTablero().coordenadaInicial())
 	}
+	
+//	method cambiarSelector(){
+//		selector.operarConPieza()
+//		selector = selector.otroSelector()
+//	}
 	
 }

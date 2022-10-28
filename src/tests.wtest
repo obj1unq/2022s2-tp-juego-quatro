@@ -2,6 +2,7 @@ import celda.*
 import pieza.*
 import fila.*
 import quatro.*
+import caracteristicas.*
 
 describe "pruebas de esVictoria"{
 	
@@ -21,7 +22,7 @@ describe "pruebas de esVictoria"{
 		pieza2.caracteristicas([blanca, tallada, cilindrica, baja])
 		pieza3.caracteristicas([blanca, tallada, cuadrada, baja])
 		pieza4.caracteristicas([blanca, lisa, cilindrica, baja])
-		pieza5.caracteristicas([blanca, cuadrada, lisa, alta])
+		pieza5.caracteristicas([cuadrada, lisa, blanca, alta])
 
 		celda1.contenido(pieza1)
 		celda2.contenido(pieza2)
@@ -81,14 +82,10 @@ describe "pruebas de esVictoria"{
 
 	test "test donde probamos armar los nombres de las piezas en orden"{
 		assert.equals([blanca,lisa,cuadrada, alta], pieza5.caracteristicasOrdenadas())
-		
-		
 	}
 	
 	test "test donde probamos que la imagen se arme correctamente"{
 		assert.equals("quatro-blanca-lisa-cuadrada-alta.png", pieza5.image())
-		
-		
 	}
 }
 
