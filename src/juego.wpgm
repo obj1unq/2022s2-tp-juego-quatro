@@ -1,5 +1,6 @@
 import wollok.game.*
 import quatro.*
+import configuracion.*
 
 object pepita{
 	var property position = game.at(0, 0)
@@ -10,8 +11,11 @@ program juego {
 	game.boardGround("tablero.png")
 	game.width(40)
 	game.height(24)
-	game.cellSize(35)
+	game.cellSize(20)
 //	keyboard.enter().onPressDo({quatro.cambiarSelector()})
-	game.addVisualCharacter(quatro)
+	game.addVisualCharacter(pepita)
+	configuracion.configurarPiezas()
+	configuracion.agregarVisualizaciones()
+	configuracion.ubicarPiezas()
 	game.start()
 }
