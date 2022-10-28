@@ -18,21 +18,73 @@ class Pieza {
 			self.error("No puedo tener menos de 4 caracteristicas")
 		}
 	}
+	
+	method image(){
+		return "quatro-" + self.caracteristicasOrdenadas().join("-") + ".png"
+	}
+	
+	method caracteristicasOrdenadas(){
+		return caracteristicas.sortedBy({ c1, c2 => c1.orden() < c2.orden() })	
+	}
+}
+
+object nullPieza {
+	method caracteristicas() = []
+	method image() {}
+	method caracteristicasOrdenadas() {}
+	
+}
+
+class Caracteristica {
+	method orden()
+	method nombre()
 }
 
 
-object negra{}
+class Color inherits Caracteristica {
+	override method orden() = 1
+}
 
-object blanca{}
+class Aspecto inherits Caracteristica{
+	override method orden() = 2
+}
 
-object lisa{}
+class Forma inherits Caracteristica{
+	override method orden() = 3
+}
 
-object tallada{}
+class Altura inherits Caracteristica{
+	override method orden() = 4
+}
 
-object cuadrada{}
+object negra inherits Color{
+	override method nombre() = "negra"
+}
 
-object cilindrica{}
+object blanca inherits Color{
+	override method nombre() = "blanca"
+}
 
-object alta{}
+object lisa inherits Aspecto {
+	override method nombre() = "lisa"
+}
 
-object baja{}
+object tallada inherits Aspecto {
+	override method nombre() = "tallada"
+}
+
+object cuadrada inherits Forma{
+	override method nombre() = "cuadrada"
+}
+
+object cilindrica inherits Forma{
+	override method nombre() = "cilindrica"
+}
+
+object alta inherits Altura{
+	override method nombre() = "alta"
+}
+
+object baja inherits Altura{
+	override method nombre() = "baja"
+}
