@@ -1,4 +1,5 @@
-# Nombre del juego (<- borrar y completar)
+# Quarto
+
 Ideas:
 - clase pieza con un set de caracteristicas. 
 - modelar tablero, con clase celda puede tener pieza, 
@@ -13,6 +14,12 @@ cada casillero de pieza es un objeto que tendria las posiciones x e y maximas???
 cuando se haga enter, el objeto quatro va a cambiar de jugador, seleccionar la pieza actual (donde esta parado)
 y llevarla al tablero principal, cuando se vuelva a hacer enter (o p) se pone la pieza y cambia de nuevo el
 jugador
+
+## Tareas:
+- Desarrollar los tests de poner y seleccionar piezas(verificar los errores, cambio de estado de los tableros y cambio de jugador)
+- Crear el entorno del juego, esto quiere decir crear las celdas configurarlas, crear las filas y realizar modificaciones si hacen falta
+- Hacer la imagen del selector y modificar el tablero para que tenga la Q de la unqui 
+
 ## Equipo de desarrollo
 
 - Alguien

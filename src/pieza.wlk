@@ -5,10 +5,18 @@ class Pieza {
 	// pieza_ color altura forma relleno
 	var caracteristicas = []
 	const tamanioDeCaracteristicas = 4
-	var property position = game.at(0,0)
+	var position = game.at(0,0)
+	var property target = null
 	
 	method caracteristicas(){
 		return caracteristicas
+	}
+	
+	method position(){
+		return if (target != null) target.position() else position
+	}
+	method position(_position){
+		position = _position
 	}
 	
 	method caracteristicas(_caracteristicas){
