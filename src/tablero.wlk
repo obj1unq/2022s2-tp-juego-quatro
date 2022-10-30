@@ -30,14 +30,14 @@ object tableroQuatro inherits Tablero{
 
 object tableroBlancas inherits Tablero{
 	method iniciarCoordenadas(){
-		self.coordenadaInicial(game.at(25, 4))
-		self.coordenadaFinal(game.at(34, 7))
+		self.coordenadaInicial(game.at(25, 5))
+		self.coordenadaFinal(game.at(34, 8))
 	}
 }
 
 object tableroNegras inherits Tablero{
 	method iniciarCoordenadas(){
-		self.coordenadaInicial(game.at(25, 13))
-		self.coordenadaFinal(game.at(34, 16))
+		self.coordenadaInicial(game.at(25, 14))
+		self.coordenadaFinal(game.at(34, 17))
 	}
 }
