@@ -5,77 +5,53 @@ import direcciones.*
 import selector.*
 import quatro.*
 
-//object pepita{
-//	var property position = game.at(25,4)
-//	method image() = "pepita.png"
-//	
-//	method mover(direccion){
-//		const paso = 3
-//		position = direccion.siguientes(position, paso)
-//		game.say(self, "x: " + position.x() + " y:" + position.y())
-//	}
-//}
 
 object configuracion {
-	const pieza1 = new Pieza()
-	const pieza2 = new Pieza()
-	const pieza3 = new Pieza()
-	const pieza4 = new Pieza()
-	const pieza5 = new Pieza()
-	const pieza6 = new Pieza()
-	const pieza7 = new Pieza()
-	const pieza8 = new Pieza()
-//	const pieza9 = new Pieza()
-//	const pieza10 = new Pieza()
-//	const pieza11 = new Pieza()
-//	const pieza12 = new Pieza()
-//	const pieza13 = new Pieza()
-//	const pieza14 = new Pieza()
-//	const pieza15 = new Pieza()
-//	const pieza16 = new Pieza()
-	
-	method pieza() = pieza4
+
+	const piezas = (1..8).map( { n=> new Pieza() } )
+	var indice = 0
 	
 	method configurarPiezas(){ 
-		pieza1.caracteristicas([blanca, lisa, cuadrada, baja])
-		pieza2.caracteristicas([blanca, lisa, cilindrica, baja])
-		pieza3.caracteristicas([blanca, lisa, cuadrada, alta])
-		pieza4.caracteristicas([blanca, lisa, cilindrica, alta])
-		pieza5.caracteristicas([blanca, tallada, cilindrica, baja])
-		pieza6.caracteristicas([blanca, tallada, cuadrada, baja])
-		pieza7.caracteristicas([blanca, tallada, cilindrica, alta])
-		pieza8.caracteristicas([blanca, tallada, cuadrada, alta])
-//		pieza9.caracteristicas([negra, lisa, cuadrada, baja])
-//		pieza10.caracteristicas([negra, lisa, cilindrica, baja])
-//		pieza11.caracteristicas([negra, lisa, cuadrada, alta])
-//		pieza12.caracteristicas([negra, lisa, cilindrica, alta])
-//		pieza13.caracteristicas([negra, tallada, cilindrica, baja])
-//		pieza14.caracteristicas([negra, tallada, cuadrada, baja])
-//		pieza15.caracteristicas([negra, tallada, cilindrica, alta])
-//		pieza16.caracteristicas([negra, tallada, cuadrada, alta])
+		piezas.get(0).caracteristicas([blanca, lisa, cuadrada, baja])
+		piezas.get(1).caracteristicas([blanca, lisa, cilindrica, baja])
+		piezas.get(2).caracteristicas([blanca, lisa, cuadrada, alta])
+		piezas.get(3).caracteristicas([blanca, lisa, cilindrica, alta])
+		piezas.get(4).caracteristicas([blanca, tallada, cilindrica, baja])
+		piezas.get(5).caracteristicas([blanca, tallada, cuadrada, baja])
+		piezas.get(6).caracteristicas([blanca, tallada, cilindrica, alta])
+		piezas.get(7).caracteristicas([blanca, tallada, cuadrada, alta])
+//		piezas.get(8).caracteristicas([negra, lisa, cuadrada, baja])
+//		piezas.get(9).caracteristicas([negra, lisa, cilindrica, baja])
+//		piezas.get(10).caracteristicas([negra, lisa, cuadrada, alta])
+//		piezas.get(11).caracteristicas([negra, lisa, cilindrica, alta])
+//		piezas.get(12).caracteristicas([negra, tallada, cilindrica, baja])
+//		piezas.get(13).caracteristicas([negra, tallada, cuadrada, baja])
+//		piezas.get(14).caracteristicas([negra, tallada, cilindrica, alta])
+//		piezas.get(15).caracteristicas([negra, tallada, cuadrada, alta])
 	}
 		
 	method agregarVisualizaciones(){
-		game.addVisual(pieza1)
-		game.addVisual(pieza2)
-		game.addVisual(pieza3)
-		game.addVisual(pieza4)
-		game.addVisual(pieza5)
-		game.addVisual(pieza6)
-		game.addVisual(pieza7)
-		game.addVisual(pieza8)
+		(0..7).forEach( { n => game.addVisual(piezas.get(n)) } )
 		game.addVisual(selector)
 	}
 	
+
+	// Ubica las piezas, en el eje Y va recorriendo la lista y por cada valor realiza posicionarPieza
 	method ubicarPiezas(){
-		pieza1.position(game.at(25,4))
-		pieza2.position(game.at(28,4))
-		pieza3.position(game.at(31,4))
-		pieza4.position(game.at(34,4))
-		pieza5.position(game.at(25,7))
-		pieza6.position(game.at(28,7))
-		pieza7.position(game.at(31,7))
-		pieza8.position(game.at(34,7))
+		[4,7].forEach( { y => 
+			(0..3).forEach( { dx => 
+				self.posicionarPieza(dx, y)
+			} )
+		})
+	}
+	
+	//	Posiciona la pieza del indice actual en el eje X: 25 + 3 * (0..3), y el eje Y dado
+	method posicionarPieza(dx, y){
+		const posInicialX = 25
+		const paso = 3
+		const nuevoX = posInicialX + paso * dx
+		piezas.get(indice).position(game.at(nuevoX, y))
+		indice ++
 	}
 	
 	method configurarTeclas(){
