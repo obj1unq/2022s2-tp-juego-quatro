@@ -2,6 +2,7 @@ import celda.*
 import pieza.*
 import fila.*
 import quatro.*
+import caracteristicas.*
 
 describe "pruebas de esVictoria"{
 	
@@ -21,7 +22,7 @@ describe "pruebas de esVictoria"{
 		pieza2.caracteristicas([blanca, tallada, cilindrica, baja])
 		pieza3.caracteristicas([blanca, tallada, cuadrada, baja])
 		pieza4.caracteristicas([blanca, lisa, cilindrica, baja])
-		pieza5.caracteristicas([blanca, cuadrada, lisa, alta])
+		pieza5.caracteristicas([cuadrada, lisa, blanca, alta])
 
 		celda1.contenido(pieza1)
 		celda2.contenido(pieza2)
@@ -63,8 +64,8 @@ describe "pruebas de esVictoria"{
 		const celda6 = new Celda()
 		const celda7 = new Celda()
 		const fila2 = new Fila(celdas=#{celda1, celda5, celda6, celda7})
-		quatro.filas(#{fila1, fila2})
-		assert.that(quatro.hayFilaGanadora())
+		quarto.filas(#{fila1, fila2})
+		assert.that(quarto.hayFilaGanadora())
 	}
 	
 	test "test donde el juego revisa las 2 filas y ninguna es ganadora"{
@@ -75,20 +76,16 @@ describe "pruebas de esVictoria"{
 		
 		const fila1 = new Fila(celdas=#{celda1, celda8, celda3, celda4})
 		const fila2 = new Fila(celdas=#{celda1, celda5, celda6, celda7})
-		quatro.filas(#{fila1, fila2})
-		assert.notThat(quatro.hayFilaGanadora())
+		quarto.filas(#{fila1, fila2})
+		assert.notThat(quarto.hayFilaGanadora())
 	}
 
 	test "test donde probamos armar los nombres de las piezas en orden"{
 		assert.equals([blanca,lisa,cuadrada, alta], pieza5.caracteristicasOrdenadas())
-		
-		
 	}
 	
 	test "test donde probamos que la imagen se arme correctamente"{
 		assert.equals("quatro-blanca-lisa-cuadrada-alta.png", pieza5.image())
-		
-		
 	}
 }
 

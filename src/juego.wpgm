@@ -1,21 +1,23 @@
 import wollok.game.*
 import quatro.*
 import configuracion.*
+import tablero.*
+import jugador.*
 
-object pepita{
-	var property position = game.at(0, 0)
-	method image() = "pepita.png"
-}
 program juego {
-	game.title("Juego Base")
+	game.title("Quarto")
 	game.boardGround("tablero.png")
 	game.width(40)
 	game.height(24)
-	game.cellSize(20)
-//	keyboard.enter().onPressDo({quatro.cambiarSelector()})
-	game.addVisualCharacter(pepita)
-	configuracion.configurarPiezas()
-	configuracion.agregarVisualizaciones()
-	configuracion.ubicarPiezas()
+	game.cellSize(35)
+	tableroQuatro.iniciarCoordenadas()
+	tableroNegras.iniciarCoordenadas()
+	tableroBlancas.iniciarCoordenadas()
+	jugadorBlanco.iniciar()
+	jugadorNegro.iniciar()
+	quarto.configurarPiezas()
+	quarto.agregarVisualizaciones()
+	quarto.ubicarPiezas()
+	configuracion.configurarTeclas()
 	game.start()
 }

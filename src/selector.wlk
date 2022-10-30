@@ -1,39 +1,37 @@
 import wollok.game.*
+import tablero.*
+import pieza.nullPieza
+import quatro.*
 
-object selectorDePieza {
-	// Va a variar de acuerdo al tablero final
-	var property position = game.at(6, 0)
+object selector{
+	var property position = quarto.tableroActual().coordenadaInicial()
+	var property piezaActual = nullPieza
 	
-	method operarConPieza(){
-		self.seleccionarPieza()
+	method image() = "pepita.png"
+	
+	method mover(direccion){
+		const paso = 3
+		const nuevaPos = direccion.siguientes(position, paso)
+		position = game.at(self.nuevoX(nuevaPos.x()), self.nuevoY(nuevaPos.y()))
+	}
+	
+	method nuevoX(xAMover){
+		return xAMover.max(quarto.tableroActual().ejeXMinimo()).min(quarto.tableroActual().ejeXMaximo())
+	}
+	
+	method nuevoY(yAMover){
+		return yAMover.max(quarto.tableroActual().ejeYMinimo()).min(quarto.tableroActual().ejeYMaximo())
 	}
 	
 	method seleccionarPieza(){
-		self.validarPieza()
-		const pieza = game.colliders(self)
-		pieza.position(0,0) // va a mover la pieza al tablero principal
+		piezaActual = game.colliders(self).first()
+		piezaActual.target(self)
+		self.position(quarto.tableroActual().coordenadaInicial())
 	}
 	
-	method validarPieza(){
-		if (game.colliders(self).isEmpty()){
-			self.error("No hay pieza para seleccionar")
-		}
-	}
-	
-	method otroSelector() = selectorDePosicion
-}
-
-object selectorDePosicion{
-	
-	method operarConPieza() { 
-		self.ponerPieza()
-	}
-	
-	// TODO: Ver que se hace cuando se pone la pieza
-	// Cuando el jugador ponga la pieza se tiene que validar si se gano el juego y parar el programa
 	method ponerPieza(){
-		self.otroSelector().position(6,0) // mover al otro selector?
+		piezaActual.position(position)
+		piezaActual.target(null)
+		piezaActual = nullPieza
 	}
-	
-	method otroSelector() = selectorDePieza
 }
