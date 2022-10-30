@@ -5,20 +5,19 @@ import tablero.*
 import jugador.*
 
 program juego {
-	game.title("Juego Base")
+	game.title("Quarto")
 	game.boardGround("tablero.png")
 	game.width(40)
 	game.height(24)
 	game.cellSize(35)
-//	keyboard.enter().onPressDo({quatro.cambiarSelector()})
 	tableroQuatro.iniciarCoordenadas()
 	tableroNegras.iniciarCoordenadas()
 	tableroBlancas.iniciarCoordenadas()
 	jugadorBlanco.iniciar()
 	jugadorNegro.iniciar()
-	configuracion.configurarPiezas()
-	configuracion.agregarVisualizaciones()
-	configuracion.ubicarPiezas()
+	quarto.configurarPiezas()
+	quarto.agregarVisualizaciones()
+	quarto.ubicarPiezas()
 	configuracion.configurarTeclas()
 	game.start()
 }

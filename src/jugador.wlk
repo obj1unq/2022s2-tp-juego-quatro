@@ -2,22 +2,22 @@ import tablero.*
 
 class Jugador{
 	var property piezas = #{}
-	var property otroTablero =  tableroQuatro
+	var property tableroRival =  tableroQuatro
 		
 }
 
 object jugadorBlanco inherits Jugador{
 	method iniciar(){
-		otroTablero = tableroNegras
+		tableroRival = tableroNegras
 	}
 	
-	method otroJugador() = jugadorNegro
+	method jugadorRival() = jugadorNegro
 }
 
 object jugadorNegro inherits Jugador{
 	method iniciar(){
-		otroTablero = tableroBlancas
+		tableroRival = tableroBlancas
 	}
 	
-	method otroJugador() = jugadorBlanco
+	method jugadorRival() = jugadorBlanco
 }
