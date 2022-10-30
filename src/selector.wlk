@@ -15,15 +15,11 @@ object selector{
 	}
 	
 	method nuevoX(xAMover){
-		return xAMover.max(tablero.coordenadaInicial().x()).min(tablero.coordenadaFinal().x())
+		return xAMover.max(tablero.ejeXMinimo()).min(tablero.ejeXMaximo())
 	}
 	
 	method nuevoY(yAMover){
-		return yAMover.max(tablero.coordenadaInicial().y()).min(tablero.coordenadaFinal().y())
-	}
-	
-	method ubicarEnPosicionInicial(nuevaPos){
-		self.position(nuevaPos)
+		return yAMover.max(tablero.ejeYMinimo()).min(tablero.ejeYMaximo())
 	}
 }
 

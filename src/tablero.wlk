@@ -4,6 +4,21 @@ class Tablero{
 	var property coordenadaInicial = game.at(0, 0)
 	var property coordenadaFinal = game.at(0, 0)
 	
+	method ejeXMinimo() {
+		return coordenadaInicial.x()
+	}
+	
+	method ejeXMaximo() {
+		return coordenadaFinal.x()
+	}
+	
+	method ejeYMinimo() {
+		return coordenadaInicial.y()
+	}
+	
+	method ejeYMaximo() {
+		return coordenadaFinal.y()
+	}
 }
 
 object tableroQuatro inherits Tablero{
