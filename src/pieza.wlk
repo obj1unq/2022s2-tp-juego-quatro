@@ -1,22 +1,12 @@
 import wollok.game.*
 
 class Pieza {
-	// TODO: validar que siempre esten ordenadas de la misma forma, mas que todo para las imagenes
-	// pieza_ color altura forma relleno
 	var caracteristicas = []
 	const tamanioDeCaracteristicas = 4
-	var position = game.at(0,0)
-	var property target = null
+	var property position = game.at(0,0)
 	
 	method caracteristicas(){
 		return caracteristicas
-	}
-	
-	method position(){
-		return if (target != null) target.position() else position
-	}
-	method position(_position){
-		position = _position
 	}
 	
 	method caracteristicas(_caracteristicas){
@@ -44,6 +34,8 @@ class Pieza {
 }
 
 object nullPieza {
+	method position() = game.at(0, 0)
+	method position(_position) {}
 	method caracteristicas() = []
 	method image() {}
 	method caracteristicasOrdenadas() {}
