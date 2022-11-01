@@ -5,55 +5,30 @@ import jugador.*
 import tablero.*
 import wollok.game.*
 
-object quarto {
+object quatro {
 	var property filas = #{}
-	var jugadorActual = jugadorBlanco
-	var tableroActual = jugadorActual.tableroRival()
+	var property jugadorActual = jugadorBlanco
+	var property tableroActual = jugadorActual.tableroRival()
 	const piezas = (1..16).map( { n=> new Pieza() } )
 	var indice = 0
 	
-	method tableroActual() = tableroActual
+	method verificarSiHayGanador(){
+		if (self.hayFilaGanadora()){
+			game.say(selector, "Winner")
+			game.stop()
+		}
+	}
 	
 	method hayFilaGanadora(){
 		return filas.any({ fila => fila.esVictoria() })
 	} 
 	
-	method ponerPieza(){
-		self.validarPoner()
-		selector.ponerPieza()
-		tableroActual = jugadorActual.tableroRival() 
-		selector.position(tableroActual.coordenadaInicial())
+	method operarConPieza(){
+		selector.operarConPieza()
 		if (self.hayFilaGanadora()){
-			game.say(selector, "Alguien gano")
+			game.say(selector, "Winner")
 			game.stop()
 		}
-	}
-	
-	method validarPoner(){
-		if (tableroActual != tableroQuatro or not self.puedePoner()){
-			selector.error("No se puede poner")
-		}
-	}
-	
-	method seleccionarPieza(){
-		self.validarSeleccionar()
-		tableroActual = tableroQuatro
-		jugadorActual = jugadorActual.jugadorRival()
-		selector.seleccionarPieza()
-	}
-	
-	method validarSeleccionar(){
-		if (tableroActual == tableroQuatro or not self.hayUnaPieza()){
-			selector.error("No se puede realizar esta accion")
-		}
-	}
-	
-	method hayUnaPieza(){
-		return not game.colliders(selector).isEmpty()
-	}
-	
-	method puedePoner(){
-		return game.colliders(selector).size() == 1
 	}
 	
 	method configurarPiezas(){ 

@@ -15,9 +15,9 @@ program juego {
 	tableroBlancas.iniciarCoordenadas()
 	jugadorBlanco.iniciar()
 	jugadorNegro.iniciar()
-	quarto.configurarPiezas()
-	quarto.agregarVisualizaciones()
-	quarto.ubicarPiezas()
+	quatro.configurarPiezas()
+	quatro.agregarVisualizaciones()
+	quatro.ubicarPiezas()
 	configuracion.configurarTeclas()
 	game.start()
 }
