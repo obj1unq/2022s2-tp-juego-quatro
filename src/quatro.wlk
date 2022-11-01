@@ -31,7 +31,7 @@ object quarto {
 	
 	method validarPoner(){
 		if (tableroActual != tableroQuatro or not self.puedePoner()){
-			self.error("No se puede poner")
+			selector.error("No se puede poner")
 		}
 	}
 	
@@ -44,7 +44,7 @@ object quarto {
 	
 	method validarSeleccionar(){
 		if (tableroActual == tableroQuatro or not self.hayUnaPieza()){
-			self.error("No se puede realizar esta accion")
+			selector.error("No se puede realizar esta accion")
 		}
 	}
 	
@@ -76,8 +76,8 @@ object quarto {
 	}
 		
 	method agregarVisualizaciones(){
-		(0..15).forEach( { n => game.addVisual(piezas.get(n)) } )
 		game.addVisual(selector)
+		(0..15).forEach( { n => game.addVisual(piezas.get(n)) } )
 	}
 	
 
