@@ -10,8 +10,7 @@ object configuracion {
 		keyboard.right().onPressDo( { selector.mover(derecha) }  )
 		keyboard.up().onPressDo( { selector.mover(arriba) }  )
 		keyboard.down().onPressDo( { selector.mover(abajo) }  )
-		keyboard.p().onPressDo( { quarto.ponerPieza()})
-		keyboard.enter().onPressDo({quarto.seleccionarPieza()})
+		keyboard.enter().onPressDo( {quatro.operarConPieza()} )
 	}	
 	
 }

@@ -64,8 +64,8 @@ describe "pruebas de esVictoria"{
 		const celda6 = new Celda()
 		const celda7 = new Celda()
 		const fila2 = new Fila(celdas=#{celda1, celda5, celda6, celda7})
-		quarto.filas(#{fila1, fila2})
-		assert.that(quarto.hayFilaGanadora())
+		quatro.filas(#{fila1, fila2})
+		assert.that(quatro.hayFilaGanadora())
 	}
 	
 	test "test donde el juego revisa las 2 filas y ninguna es ganadora"{
@@ -76,8 +76,8 @@ describe "pruebas de esVictoria"{
 		
 		const fila1 = new Fila(celdas=#{celda1, celda8, celda3, celda4})
 		const fila2 = new Fila(celdas=#{celda1, celda5, celda6, celda7})
-		quarto.filas(#{fila1, fila2})
-		assert.notThat(quarto.hayFilaGanadora())
+		quatro.filas(#{fila1, fila2})
+		assert.notThat(quatro.hayFilaGanadora())
 	}
 
 	test "test donde probamos armar los nombres de las piezas en orden"{
