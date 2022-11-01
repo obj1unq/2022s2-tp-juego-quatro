@@ -7,7 +7,7 @@ object selector{
 	var property position = quarto.tableroActual().coordenadaInicial()
 	var property piezaActual = nullPieza
 	
-	method image() = "pepita.png"
+	method image() = "selector.png"
 	
 	method mover(direccion){
 		const paso = 3
