@@ -1,8 +1,11 @@
-import caracteristicas.*
+import fila.*
+import celda.*
 import pieza.*
-import selector.*
 import jugador.*
 import tablero.*
+import selector.*
+import caracteristicas.*
+
 import wollok.game.*
 
 object quatro {
@@ -10,12 +13,14 @@ object quatro {
 	var property jugadorActual = jugadorBlanco
 	var property tableroActual = jugadorActual.tableroRival()
 	const piezas = (1..16).map( { n=> new Pieza() } )
+	const celdas = (1..16).map( { n=> new Celda() } )
 	var indice = 0
 	
+	method celdas() = celdas
 	method verificarSiHayGanador(){
 		if (self.hayFilaGanadora()){
-			game.say(selector, "Winner")
-			game.stop()
+			game.say(selector, "Winner " + jugadorActual)
+//			game.stop()
 		}
 	}
 	
@@ -25,10 +30,6 @@ object quatro {
 	
 	method operarConPieza(){
 		selector.operarConPieza()
-		if (self.hayFilaGanadora()){
-			game.say(selector, "Winner")
-			game.stop()
-		}
 	}
 	
 	method configurarPiezas(){ 
@@ -53,24 +54,74 @@ object quatro {
 	method agregarVisualizaciones(){
 		game.addVisual(selector)
 		(0..15).forEach( { n => game.addVisual(piezas.get(n)) } )
+		(0..15).forEach( { n => game.addVisual(celdas.get(n) ) } )
 	}
 	
-
-	// Ubica las piezas, en el eje Y va recorriendo la lista y por cada valor realiza posicionarPieza
-	method ubicarPiezas(){
-		[5, 8, 14, 17].forEach( { y => 
+	//	Posiciona el objeto del indice actual en el eje X: xInicial + 3 * (0..3), y el eje Y dado
+	method posicionarAEn(objeto, xInicial, dx, y){
+		const paso = 3
+		const nuevoX = xInicial + paso * dx
+		objeto.get(indice).position(game.at(nuevoX, y))
+		indice ++
+	}
+	
+	// Ubica el objeto, en el eje Y va recorriendo la lista y por cada valor X realiza posicionarAEn
+	method ubicarAEn(objeto, xInicial, rangoDeY){
+		indice = 0
+		rangoDeY.forEach( { y => 
 			(0..3).forEach( { dx => 
-				self.posicionarPieza(dx, y)
+				self.posicionarAEn(objeto, xInicial, dx, y)
 			} )
 		})
 	}
 	
-	//	Posiciona la pieza del indice actual en el eje X: 25 + 3 * (0..3), y el eje Y dado
-	method posicionarPieza(dx, y){
-		const posInicialX = 25
-		const paso = 3
-		const nuevoX = posInicialX + paso * dx
-		piezas.get(indice).position(game.at(nuevoX, y))
-		indice ++
+	
+	method crearFilas(){
+		// FilaH es fila horizontal, las celdas 0 al 3 es la celda de abajo de todo y solo cambia el eje X
+		const filaH1 = new Fila()
+		filaH1.celdas((0..3).map{ n=> celdas.get(n)}.asSet())
+		
+		const filaH2 = new Fila()
+		filaH2.celdas((4..7).map{ n=> celdas.get(n)}.asSet())
+		
+		const filaH3 = new Fila()
+		filaH3.celdas((8..11).map{ n=> celdas.get(n)}.asSet())
+		
+		const filaH4 = new Fila()
+		filaH4.celdas((12..15).map{ n=> celdas.get(n)}.asSet())
+		
+		////////////////////////////////////////////////////
+		// Filas Verticales
+		
+		const filaV1 = new Fila()
+		filaV1.celdas(new Range(start=0,end=12,step=4).map{ n=> celdas.get(n)}.asSet())
+		
+		const filaV2 = new Fila()
+		filaV2.celdas(new Range(start=1,end=13,step=4).map{ n=> celdas.get(n)}.asSet())
+		
+		const filaV3 = new Fila()
+		filaV3.celdas(new Range(start=2,end=14,step=4).map{ n=> celdas.get(n)}.asSet())
+		
+		const filaV4 = new Fila()
+		filaV4.celdas(new Range(start=3,end=15,step=4).map{ n=> celdas.get(n)}.asSet())
+		
+		////////////////////////////////////////////////////
+		// Diagonales
+		
+		const filaD1 = new Fila()
+		filaD1.celdas(new Range(start=0,end=15,step=5).map{ n=> celdas.get(n)}.asSet())
+		
+		const filaD2 = new Fila()
+		filaD2.celdas(new Range(start=3,end=12,step=3).map{ n=> celdas.get(n)}.asSet())
+		
+		filas = #{filaH1, filaH2, filaH3, filaH4, filaV1, filaV2, filaV3, filaV4, filaD1, filaD2}
+	}
+	
+	method iniciar(){
+		self.configurarPiezas()
+		self.agregarVisualizaciones()
+		self.ubicarAEn(piezas, 25, [5, 8, 14, 17])
+		self.ubicarAEn(celdas, 7, new Range(start=7, end=16, step=3))
+		self.crearFilas()
 	}
 }
