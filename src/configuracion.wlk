@@ -1,7 +1,10 @@
-import wollok.game.*
-import direcciones.*
-import selector.*
 import quatro.*
+import tablero.*
+import jugador.*
+import selector.*
+import direcciones.*
+
+import wollok.game.*
 
 object configuracion {
 	
@@ -13,4 +16,16 @@ object configuracion {
 		keyboard.enter().onPressDo( {quatro.operarConPieza()} )
 	}	
 	
+}
+
+object nivel1{
+	method iniciar(){
+		tableroQuatro.iniciarCoordenadas()
+		tableroNegras.iniciarCoordenadas()
+		tableroBlancas.iniciarCoordenadas()
+		jugadorBlanco.iniciar()
+		jugadorNegro.iniciar()
+		quatro.iniciar()
+		configuracion.configurarTeclas()
+	}
 }
