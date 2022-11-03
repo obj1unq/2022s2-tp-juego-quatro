@@ -6,6 +6,7 @@ class Celda{
 	// contenido es null o una instancia de pieza
 	var property contenido = nullPieza
 	
+	method image() = "celdaVacia.png"
 	method caracteristicas(){
 		return contenido.caracteristicas().asSet() 
 	}	

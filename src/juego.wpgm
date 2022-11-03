@@ -1,8 +1,5 @@
 import wollok.game.*
-import quatro.*
 import configuracion.*
-import tablero.*
-import jugador.*
 
 program juego {
 	game.title("Quarto")
@@ -10,14 +7,8 @@ program juego {
 	game.width(40)
 	game.height(24)
 	game.cellSize(35)
-	tableroQuatro.iniciarCoordenadas()
-	tableroNegras.iniciarCoordenadas()
-	tableroBlancas.iniciarCoordenadas()
-	jugadorBlanco.iniciar()
-	jugadorNegro.iniciar()
-	quatro.configurarPiezas()
-	quatro.agregarVisualizaciones()
-	quatro.ubicarPiezas()
-	configuracion.configurarTeclas()
+	
+	nivel1.iniciar()
+	
 	game.start()
 }

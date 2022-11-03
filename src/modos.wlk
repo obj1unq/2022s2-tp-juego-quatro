@@ -61,16 +61,24 @@ object seleccionado inherits Modo{
 	}
 	
 	method puedePoner(){
-		return game.colliders(selector).size() == 1
+		return game.colliders(selector).size() == 2
 	}
 	
 	method operarConPieza(){
 		self.validarPoner()
+		self.ponerPiezaEnCelda()
 		pieza = nullPieza
 		const jugadorActual = quatro.jugadorActual()
 		quatro.tableroActual(jugadorActual.tableroRival())
 		quatro.verificarSiHayGanador()
 		selector.position(quatro.tableroActual().coordenadaInicial())
 		selector.state(libre)
+	}
+	
+	method ponerPiezaEnCelda(){
+		var colisiones = game.colliders(selector)
+		colisiones.remove(pieza)
+		const celda = colisiones.first()
+		celda.contenido(pieza)
 	}
 }
