@@ -124,4 +124,10 @@ object quatro {
 		self.ubicarAEn(celdas, 7, new Range(start=7, end=16, step=3))
 		self.crearFilas()
 	}
+	
+	method hayEmpate() {
+		return jugadorActual.sinFichas() && jugadorActual.jugadorRival().sinFichas()
+	}
+	
+	
 }
