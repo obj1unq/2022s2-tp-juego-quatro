@@ -17,51 +17,16 @@ describe "pruebas de esVictoria"{
 	const celda3 = new Celda()
 	const celda4 = new Celda()
 	
-	// Instancias de piezas
-	
-	const pieza_1 = new Pieza()
-	const pieza_2 = new Pieza()
-	const pieza_3 = new Pieza()
-	const pieza_4 = new Pieza()
-	const pieza_5 = new Pieza()
-	const pieza_6 = new Pieza()
-	const pieza_7 = new Pieza()
-	const pieza_8 = new Pieza()
-	const pieza_9 = new Pieza()
-	const pieza_10 = new Pieza()
-	const pieza_11 = new Pieza()
-	const pieza_12 = new Pieza()
-	const pieza_13 = new Pieza()
-	const pieza_14 = new Pieza()
-	const pieza_15 = new Pieza()
-	const pieza_16 = new Pieza()
-	
-	// Instancias de Celdas
-	
-	const celda_1 = new Celda()
-	const celda_2 = new Celda()
-	const celda_3 = new Celda()
-	const celda_4 = new Celda()
-	const celda_5 = new Celda()
-	const celda_6 = new Celda()
-	const celda_7 = new Celda()
-	const celda_8 = new Celda()
-	const celda_9 = new Celda()
-	const celda_10 = new Celda()
-	const celda_11 = new Celda()
-	const celda_12 = new Celda()
-	const celda_13 = new Celda()
-	const celda_14 = new Celda()
-	const celda_15 = new Celda()
-	const celda_16 = new Celda()
+	const piezas = (1..16).map( { n=> new Pieza() } )
+	const celdas = (1..16).map( { n=> new Celda() } )
 	
 	// Instancias de filas
 	
-	const fila_1 = new Fila(celdas=#{celda_1, celda_2, celda_3, celda_4})
-	const fila_2 = new Fila(celdas=#{celda_5, celda_6, celda_7, celda_8})
-	const fila_3 = new Fila(celdas=#{celda_9, celda_10, celda_11, celda_12})
-	const fila_4 = new Fila(celdas=#{celda_13, celda_14, celda_15, celda_16})
-	
+	const fila_1 = new Fila(celdas=#{celdas.get(0), celdas.get(1), celdas.get(2), celdas.get(3)})
+	const fila_2 = new Fila(celdas=#{celdas.get(4), celdas.get(5), celdas.get(6), celdas.get(7)})
+	const fila_3 = new Fila(celdas=#{celdas.get(8), celdas.get(9), celdas.get(10), celdas.get(11)})
+	const fila_4 = new Fila(celdas=#{celdas.get(12), celdas.get(13), celdas.get(14), celdas.get(15)})
+		
 	
 	method initialize(){		
 		pieza1.caracteristicas([blanca, lisa, cuadrada, alta])
@@ -75,39 +40,22 @@ describe "pruebas de esVictoria"{
 		celda3.contenido(pieza3)
 		celda4.contenido(pieza4)
 		
-		pieza_1.caracteristicas([blanca, lisa, cuadrada, baja])
-		pieza_2.caracteristicas([blanca, lisa, cilindrica, baja])
-		pieza_3.caracteristicas([blanca, lisa, cuadrada, alta])
-		pieza_4.caracteristicas([blanca, lisa, cilindrica, alta])
-		pieza_5.caracteristicas([blanca, tallada, cilindrica, baja])
-		pieza_6.caracteristicas([blanca, tallada, cuadrada, baja])
-		pieza_7.caracteristicas([blanca, tallada, cilindrica, alta])
-		pieza_8.caracteristicas([blanca, tallada, cuadrada, alta])
-		pieza_9.caracteristicas([negra, lisa, cuadrada, baja])
-		pieza_10.caracteristicas([negra, lisa, cilindrica, baja])
-		pieza_11.caracteristicas([negra, lisa, cuadrada, alta])
-		pieza_12.caracteristicas([negra, lisa, cilindrica, alta])
-		pieza_13.caracteristicas([negra, tallada, cilindrica, baja])
-		pieza_14.caracteristicas([negra, tallada, cuadrada, baja])
-		pieza_15.caracteristicas([negra, tallada, cilindrica, alta])
-		pieza_16.caracteristicas([negra, tallada, cuadrada, alta])
-		
-		celda_1.contenido(pieza_1)
-		celda_2.contenido(pieza_2)
-		celda_3.contenido(pieza_3)
-		celda_4.contenido(pieza_4)
-		celda_5.contenido(pieza_5)
-		celda_6.contenido(pieza_6)
-		celda_7.contenido(pieza_7)
-		celda_8.contenido(pieza_8)
-		celda_9.contenido(pieza_9)
-		celda_10.contenido(pieza_10)
-		celda_11.contenido(pieza_11)
-		celda_12.contenido(pieza_12)
-		celda_13.contenido(pieza_13)
-		celda_14.contenido(pieza_14)
-		celda_15.contenido(pieza_15)
-		celda_16.contenido(pieza_16)
+		piezas.get(0).caracteristicas([blanca, lisa, cuadrada, baja])
+		piezas.get(1).caracteristicas([blanca, lisa, cilindrica, baja])
+		piezas.get(2).caracteristicas([blanca, lisa, cuadrada, alta])
+		piezas.get(3).caracteristicas([blanca, lisa, cilindrica, alta])
+		piezas.get(4).caracteristicas([blanca, tallada, cilindrica, baja])
+		piezas.get(5).caracteristicas([blanca, tallada, cuadrada, baja])
+		piezas.get(6).caracteristicas([blanca, tallada, cilindrica, alta])
+		piezas.get(7).caracteristicas([blanca, tallada, cuadrada, alta])
+		piezas.get(8).caracteristicas([negra, lisa, cuadrada, baja])
+		piezas.get(9).caracteristicas([negra, lisa, cilindrica, baja])
+		piezas.get(10).caracteristicas([negra, lisa, cuadrada, alta])
+		piezas.get(11).caracteristicas([negra, lisa, cilindrica, alta])
+		piezas.get(12).caracteristicas([negra, tallada, cilindrica, baja])
+		piezas.get(13).caracteristicas([negra, tallada, cuadrada, baja])
+		piezas.get(14).caracteristicas([negra, tallada, cilindrica, alta])
+		piezas.get(15).caracteristicas([negra, tallada, cuadrada, alta])
 		
 		
 	}
@@ -170,9 +118,26 @@ describe "pruebas de esVictoria"{
 		assert.equals("quatro-blanca-lisa-cuadrada-alta.png", pieza5.image())
 	}
 	
-	test "hay empate" {
+	test "hay empate y todas las celdas tienen una pieza" {
 		
+		celdas.get(0).contenido(piezas.get(11))
+		celdas.get(1).contenido(piezas.get(0))
+		celdas.get(2).contenido(piezas.get(8))
+		celdas.get(3).contenido(piezas.get(13))
+		celdas.get(4).contenido(piezas.get(5))
+		celdas.get(5).contenido(piezas.get(10))
+		celdas.get(6).contenido(piezas.get(4))
+		celdas.get(7).contenido(piezas.get(1))
+		celdas.get(8).contenido(piezas.get(15))
+		celdas.get(9).contenido(piezas.get(12))
+		celdas.get(10).contenido(piezas.get(6))
+		celdas.get(11).contenido(piezas.get(2))
+		celdas.get(12).contenido(piezas.get(3))
+		celdas.get(13).contenido(piezas.get(7))
+		celdas.get(14).contenido(piezas.get(14))
+		celdas.get(15).contenido(piezas.get(9))
 		
+		assert.that(quatro.esEmpate_2())
 	}
 }
 

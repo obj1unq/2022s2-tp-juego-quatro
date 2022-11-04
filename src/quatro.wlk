@@ -24,6 +24,14 @@ object quatro {
 		}
 	}
 	
+	// **** Preguntar al profesor si de esta manera se puede hacer ****
+	// En caso de que este metodo esté permitido tenemos que eliminar el atributo cantidadPiezas de la clase jugador, y el método
+	// hayEmpate()
+	
+	method esEmpate_2() {
+		return not self.hayFilaGanadora() && filas.all({fila => fila.esFilaCompleta()})
+	}
+	
 	method hayFilaGanadora(){
 		return filas.any({ fila => fila.esVictoria() })
 	} 
@@ -126,7 +134,7 @@ object quatro {
 	}
 	
 	method hayEmpate() {
-		return jugadorActual.sinFichas() && jugadorActual.jugadorRival().sinFichas()
+		return not self.hayFilaGanadora() && jugadorActual.sinFichas() && jugadorActual.jugadorRival().sinFichas()
 	}
 	
 	

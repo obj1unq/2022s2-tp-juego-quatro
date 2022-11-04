@@ -34,4 +34,5 @@ class Fila{
 	}
 	
 	method caracteristicasAlgunaCelda() = celdas.anyOne().caracteristicas()
+	
 }
