@@ -17,17 +17,99 @@ describe "pruebas de esVictoria"{
 	const celda3 = new Celda()
 	const celda4 = new Celda()
 	
+	// Instancias de piezas
+	
+	const pieza_1 = new Pieza()
+	const pieza_2 = new Pieza()
+	const pieza_3 = new Pieza()
+	const pieza_4 = new Pieza()
+	const pieza_5 = new Pieza()
+	const pieza_6 = new Pieza()
+	const pieza_7 = new Pieza()
+	const pieza_8 = new Pieza()
+	const pieza_9 = new Pieza()
+	const pieza_10 = new Pieza()
+	const pieza_11 = new Pieza()
+	const pieza_12 = new Pieza()
+	const pieza_13 = new Pieza()
+	const pieza_14 = new Pieza()
+	const pieza_15 = new Pieza()
+	const pieza_16 = new Pieza()
+	
+	// Instancias de Celdas
+	
+	const celda_1 = new Celda()
+	const celda_2 = new Celda()
+	const celda_3 = new Celda()
+	const celda_4 = new Celda()
+	const celda_5 = new Celda()
+	const celda_6 = new Celda()
+	const celda_7 = new Celda()
+	const celda_8 = new Celda()
+	const celda_9 = new Celda()
+	const celda_10 = new Celda()
+	const celda_11 = new Celda()
+	const celda_12 = new Celda()
+	const celda_13 = new Celda()
+	const celda_14 = new Celda()
+	const celda_15 = new Celda()
+	const celda_16 = new Celda()
+	
+	// Instancias de filas
+	
+	const fila_1 = new Fila(celdas=#{celda_1, celda_2, celda_3, celda_4})
+	const fila_2 = new Fila(celdas=#{celda_5, celda_6, celda_7, celda_8})
+	const fila_3 = new Fila(celdas=#{celda_9, celda_10, celda_11, celda_12})
+	const fila_4 = new Fila(celdas=#{celda_13, celda_14, celda_15, celda_16})
+	
+	
 	method initialize(){		
 		pieza1.caracteristicas([blanca, lisa, cuadrada, alta])
 		pieza2.caracteristicas([blanca, tallada, cilindrica, baja])
 		pieza3.caracteristicas([blanca, tallada, cuadrada, baja])
 		pieza4.caracteristicas([blanca, lisa, cilindrica, baja])
 		pieza5.caracteristicas([cuadrada, lisa, blanca, alta])
-
+		
 		celda1.contenido(pieza1)
 		celda2.contenido(pieza2)
 		celda3.contenido(pieza3)
 		celda4.contenido(pieza4)
+		
+		pieza_1.caracteristicas([blanca, lisa, cuadrada, baja])
+		pieza_2.caracteristicas([blanca, lisa, cilindrica, baja])
+		pieza_3.caracteristicas([blanca, lisa, cuadrada, alta])
+		pieza_4.caracteristicas([blanca, lisa, cilindrica, alta])
+		pieza_5.caracteristicas([blanca, tallada, cilindrica, baja])
+		pieza_6.caracteristicas([blanca, tallada, cuadrada, baja])
+		pieza_7.caracteristicas([blanca, tallada, cilindrica, alta])
+		pieza_8.caracteristicas([blanca, tallada, cuadrada, alta])
+		pieza_9.caracteristicas([negra, lisa, cuadrada, baja])
+		pieza_10.caracteristicas([negra, lisa, cilindrica, baja])
+		pieza_11.caracteristicas([negra, lisa, cuadrada, alta])
+		pieza_12.caracteristicas([negra, lisa, cilindrica, alta])
+		pieza_13.caracteristicas([negra, tallada, cilindrica, baja])
+		pieza_14.caracteristicas([negra, tallada, cuadrada, baja])
+		pieza_15.caracteristicas([negra, tallada, cilindrica, alta])
+		pieza_16.caracteristicas([negra, tallada, cuadrada, alta])
+		
+		celda_1.contenido(pieza_1)
+		celda_2.contenido(pieza_2)
+		celda_3.contenido(pieza_3)
+		celda_4.contenido(pieza_4)
+		celda_5.contenido(pieza_5)
+		celda_6.contenido(pieza_6)
+		celda_7.contenido(pieza_7)
+		celda_8.contenido(pieza_8)
+		celda_9.contenido(pieza_9)
+		celda_10.contenido(pieza_10)
+		celda_11.contenido(pieza_11)
+		celda_12.contenido(pieza_12)
+		celda_13.contenido(pieza_13)
+		celda_14.contenido(pieza_14)
+		celda_15.contenido(pieza_15)
+		celda_16.contenido(pieza_16)
+		
+		
 	}
 	
 	test "test donde hay coindencias de caracteristiscas y hay victoria" {
@@ -86,6 +168,11 @@ describe "pruebas de esVictoria"{
 	
 	test "test donde probamos que la imagen se arme correctamente"{
 		assert.equals("quatro-blanca-lisa-cuadrada-alta.png", pieza5.image())
+	}
+	
+	test "hay empate" {
+		
+		
 	}
 }
 
