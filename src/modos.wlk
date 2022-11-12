@@ -45,6 +45,7 @@ object seleccionado inherits Modo{
 	
 	method seleccionarPieza(){
 		pieza = game.colliders(selector).first()
+		quatro.jugadorActual().removerPieza(pieza)
 		selector.position(quatro.tableroActual().coordenadaInicial())
 		pieza.position(selector.position())
 	}
@@ -55,6 +56,7 @@ object seleccionado inherits Modo{
 	}
 	
 	method validarPoner(){
+		//***** Revisar Warning *****
 		if (quatro.tableroActual() != tableroQuatro or not self.puedePoner()){
 			selector.error("No se puede poner")
 		}

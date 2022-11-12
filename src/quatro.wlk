@@ -5,8 +5,16 @@ import jugador.*
 import tablero.*
 import selector.*
 import caracteristicas.*
-
 import wollok.game.*
+
+object fondoPortada {
+
+	var property position = game.at(20, 11)
+	var property estado = ""
+
+	method image() = "quatro-" + estado + ".png"
+
+}
 
 object quatro {
 	var property filas = #{}
@@ -19,9 +27,24 @@ object quatro {
 	method celdas() = celdas
 	method verificarSiHayGanador(){
 		if (self.hayFilaGanadora()){
-			game.say(selector, "Winner " + jugadorActual)
-//			game.stop()
+			self.finalizarJuego("ganadore-" + jugadorActual.nombre())
 		}
+		else if (self.hayEmpate()){
+			self.finalizarJuego("empate")
+		}
+	}
+	
+	method finalizarJuego(estado){
+		game.removeVisual(selector)
+		fondoPortada.estado(estado)
+		game.addVisual(fondoPortada)
+	}
+	// **** Preguntar al profesor si de esta manera se puede hacer ****
+	// En caso de que este metodo esté permitido tenemos que eliminar el atributo cantidadPiezas de la clase jugador, y el método
+	// hayEmpate()
+	
+	method esEmpate_2() {
+		return not self.hayFilaGanadora() && filas.all({fila => fila.esFilaCompleta()})
 	}
 	
 	method hayFilaGanadora(){
@@ -49,6 +72,9 @@ object quatro {
 		piezas.get(13).caracteristicas([negra, tallada, cuadrada, baja])
 		piezas.get(14).caracteristicas([negra, tallada, cilindrica, alta])
 		piezas.get(15).caracteristicas([negra, tallada, cuadrada, alta])
+		
+		(0..7).forEach( {n => jugadorBlanco.add(piezas.get(n)) })
+		(8..15).forEach( {n => jugadorNegro.add(piezas.get(n)) })
 	}
 		
 	method agregarVisualizaciones(){
@@ -124,4 +150,10 @@ object quatro {
 		self.ubicarAEn(celdas, 7, new Range(start=7, end=16, step=3))
 		self.crearFilas()
 	}
+	
+	method hayEmpate() {
+		return not self.hayFilaGanadora() && jugadorActual.sinFichas() && jugadorActual.jugadorRival().sinFichas()
+	}
+	
+	
 }
