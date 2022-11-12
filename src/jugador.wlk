@@ -23,6 +23,8 @@ object jugadorBlanco inherits Jugador{
 	}
 	
 	method jugadorRival() = jugadorNegro
+	
+	method nombre() = "blanco"
 }
 
 object jugadorNegro inherits Jugador{
@@ -31,4 +33,5 @@ object jugadorNegro inherits Jugador{
 	}
 	
 	method jugadorRival() = jugadorBlanco
+	method nombre() = "negro"
 }

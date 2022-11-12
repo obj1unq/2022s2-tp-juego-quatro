@@ -5,8 +5,16 @@ import jugador.*
 import tablero.*
 import selector.*
 import caracteristicas.*
-
 import wollok.game.*
+
+object fondoPortada {
+
+	var property position = game.at(20, 11)
+	var property estado = ""
+
+	method image() = "quatro-" + estado + ".png"
+
+}
 
 object quatro {
 	var property filas = #{}
@@ -19,14 +27,18 @@ object quatro {
 	method celdas() = celdas
 	method verificarSiHayGanador(){
 		if (self.hayFilaGanadora()){
-			game.say(selector, "Winner " + jugadorActual)
-//			game.stop()
+			self.finalizarJuego("ganadore-" + jugadorActual.nombre())
 		}
 		else if (self.hayEmpate()){
-			game.say(selector, "Hay empate")
+			self.finalizarJuego("empate")
 		}
 	}
 	
+	method finalizarJuego(estado){
+		game.removeVisual(selector)
+		fondoPortada.estado(estado)
+		game.addVisual(fondoPortada)
+	}
 	// **** Preguntar al profesor si de esta manera se puede hacer ****
 	// En caso de que este metodo esté permitido tenemos que eliminar el atributo cantidadPiezas de la clase jugador, y el método
 	// hayEmpate()
