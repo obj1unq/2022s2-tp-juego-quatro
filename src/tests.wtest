@@ -3,6 +3,7 @@ import pieza.*
 import fila.*
 import quatro.*
 import caracteristicas.*
+import jugador.*
 
 describe "pruebas de esVictoria"{
 	
@@ -137,7 +138,9 @@ describe "pruebas de esVictoria"{
 		celdas.get(14).contenido(piezas.get(14))
 		celdas.get(15).contenido(piezas.get(9))
 		
-		assert.that(quatro.esEmpate_2())
+		jugadorBlanco.piezas(#{})
+		jugadorNegro.piezas(#{})
+		assert.that(quatro.hayEmpate())
 	}
 }
 

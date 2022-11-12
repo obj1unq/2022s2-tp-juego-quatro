@@ -3,18 +3,17 @@ import tablero.*
 class Jugador{
 	var property piezas = #{}
 	var property tableroRival =  tableroQuatro
-	var cantidadPiezas = 8
 	
-	method restarUnaPiezaAlPoner() {
-		cantidadPiezas -= 1
-	}
-	
-	method cantidadPiezas() {
-		return cantidadPiezas
+	method removerPieza(pieza) {
+		piezas.remove(pieza)
 	}
 	
 	method sinFichas() {
-		return cantidadPiezas == 0
+		return piezas.isEmpty()
+	}
+	
+	method add(pieza){
+		piezas.add(pieza)
 	}
 }
 

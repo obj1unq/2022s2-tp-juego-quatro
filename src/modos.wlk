@@ -45,6 +45,7 @@ object seleccionado inherits Modo{
 	
 	method seleccionarPieza(){
 		pieza = game.colliders(selector).first()
+		quatro.jugadorActual().removerPieza(pieza)
 		selector.position(quatro.tableroActual().coordenadaInicial())
 		pieza.position(selector.position())
 	}
@@ -70,12 +71,10 @@ object seleccionado inherits Modo{
 		self.ponerPiezaEnCelda()
 		pieza = nullPieza
 		const jugadorActual = quatro.jugadorActual()
-		jugadorActual.restarUnaPiezaAlPoner()
 		quatro.tableroActual(jugadorActual.tableroRival())
 		quatro.verificarSiHayGanador()
 		selector.position(quatro.tableroActual().coordenadaInicial())
 		selector.state(libre)
-		self.validarEmpate()
 	}
 	
 	method ponerPiezaEnCelda(){
@@ -83,11 +82,5 @@ object seleccionado inherits Modo{
 		colisiones.remove(pieza)
 		const celda = colisiones.first()
 		celda.contenido(pieza)
-	}
-	
-	method validarEmpate() {
-		if (quatro.hayEmpate()) {
-			game.say(selector, "Hay empate")
-		}
 	}
 }

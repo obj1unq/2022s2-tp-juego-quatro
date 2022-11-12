@@ -22,6 +22,9 @@ object quatro {
 			game.say(selector, "Winner " + jugadorActual)
 //			game.stop()
 		}
+		else if (self.hayEmpate()){
+			game.say(selector, "Hay empate")
+		}
 	}
 	
 	// **** Preguntar al profesor si de esta manera se puede hacer ****
@@ -57,6 +60,9 @@ object quatro {
 		piezas.get(13).caracteristicas([negra, tallada, cuadrada, baja])
 		piezas.get(14).caracteristicas([negra, tallada, cilindrica, alta])
 		piezas.get(15).caracteristicas([negra, tallada, cuadrada, alta])
+		
+		(0..7).forEach( {n => jugadorBlanco.add(piezas.get(n)) })
+		(8..15).forEach( {n => jugadorNegro.add(piezas.get(n)) })
 	}
 		
 	method agregarVisualizaciones(){
