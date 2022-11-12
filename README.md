@@ -6,6 +6,10 @@ Ideas:
 - clase pieza, 
 - clase fila, 
 - Y un objeto "juego" que itera por todas las filas para ver si se gano
+- Añadir puntos a los jugadores, por cada dos piezas juntas que compartan una caracteristica, sumar un punto.
+- Dar power ups a las piezas, que resta un punto al jugador, entonces en la clase caracteristica, agregamos un metodo powerUp que reste un punto y valide
+  que el jugador tiene puntos, y luego cada caracteristica overridea el metodo y agrega un power up distinto, por ejemplo, un posible power seria comer una pieza
+  y devolverla al tablero original
 
 Quatro seria nuestro main Character, ya que sabe cual es el selector a utilizar en el juego
 Quatro tiene el jugador actual, jugador 1 y 2 son objetos
