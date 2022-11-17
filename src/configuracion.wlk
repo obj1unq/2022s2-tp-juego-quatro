@@ -40,7 +40,7 @@ object visorBlancoVictorias inherits Visor{
 	override method jugador() = jugadorBlanco
 
 	method position() {
-		return game.at(34,11)
+		return game.at(34,12)
 	}
 	
 }
@@ -49,7 +49,7 @@ object visorNegroVictorias inherits Visor{
 	override method jugador() = jugadorNegro
 	
 	method position() {
-		return game.at(34,20)
+		return game.at(34,21)
 	}
 	
 }
