@@ -1,8 +1,21 @@
+import quatro.*
 import tablero.*
+import wollok.game.*
 
 class Jugador{
 	var property piezas = #{}
 	var property tableroRival =  tableroQuatro
+	var victorias = 0
+	
+	method victorias() = victorias
+	method sumarVictoria() {
+		if (quatro.hayFilaGanadora()){
+			victorias += 1
+		}
+	}
+	method esGanador(){
+		return victorias == 3
+	}
 	
 	method removerPieza(pieza) {
 		piezas.remove(pieza)

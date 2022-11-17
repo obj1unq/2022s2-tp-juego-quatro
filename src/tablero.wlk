@@ -19,6 +19,9 @@ class Tablero{
 	method ejeYMaximo() {
 		return coordenadaFinal.y()
 	}
+	
+	method puedeSeleccionar()
+	method puedePoner()
 }
 
 object tableroQuatro inherits Tablero{
@@ -26,16 +29,25 @@ object tableroQuatro inherits Tablero{
 		self.coordenadaInicial(game.at(7, 7))
 		self.coordenadaFinal(game.at(16, 16))
 	}
+	
+	override method puedeSeleccionar() = false
+	override method puedePoner() = true
 }
 
-object tableroBlancas inherits Tablero{
+class TableroJugador inherits Tablero {
+	override method puedeSeleccionar() = true
+	override method puedePoner() = false
+}
+
+object tableroBlancas inherits TableroJugador{
 	method iniciarCoordenadas(){
 		self.coordenadaInicial(game.at(25, 5))
 		self.coordenadaFinal(game.at(34, 8))
 	}
+	
 }
 
-object tableroNegras inherits Tablero{
+object tableroNegras inherits TableroJugador{
 	method iniciarCoordenadas(){
 		self.coordenadaInicial(game.at(25, 14))
 		self.coordenadaFinal(game.at(34, 17))

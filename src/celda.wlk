@@ -9,6 +9,10 @@ class Celda{
 	method image() = "celdaVacia.png"
 	method caracteristicas(){
 		return contenido.caracteristicas().asSet() 
+	}
+	
+	method vaciarCelda(){
+		contenido = nullPieza
 	}	
 }
 

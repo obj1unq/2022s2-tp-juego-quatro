@@ -4,6 +4,7 @@ import pieza.*
 import jugador.*
 import tablero.*
 import selector.*
+import configuracion.*
 import caracteristicas.*
 import wollok.game.*
 
@@ -26,12 +27,34 @@ object quatro {
 	
 	method celdas() = celdas
 	method verificarSiHayGanador(){
-		if (self.hayFilaGanadora()){
-			self.finalizarJuego("ganadore-" + jugadorActual.nombre())
+		if (self.hayFilaGanadora() or self.hayEmpate()) {
+			jugadorActual.sumarVictoria()
+			self.finalizarJuego(self.mensajeDelFin())
+			self.verificarFinDelJuego()
+			self.activarReiniciarJuego()
 		}
-		else if (self.hayEmpate()){
-			self.finalizarJuego("empate")
+	}
+	
+	method verificarFinDelJuego(){
+		if (jugadorActual.esGanador()){
+			game.schedule(2000, {game.stop()})
 		}
+	}
+	
+	method mensajeDelFin(){
+		return if (self.hayFilaGanadora()) "ganadore-" + jugadorActual.nombre() else "empate"
+	}
+	
+	method activarReiniciarJuego(){
+		keyboard.r().onPressDo( { game.schedule(500, {self.reiniciarJuego()})} )
+	}
+	
+	method reiniciarJuego(){
+		
+		game.clear()
+		self.iniciar()
+		configuracion.configurarTeclas()
+		celdas.forEach({celda => celda.vaciarCelda()})
 	}
 	
 	method finalizarJuego(estado){
@@ -53,6 +76,27 @@ object quatro {
 	
 	method operarConPieza(){
 		selector.operarConPieza()
+	}
+	
+	method hayUnaPieza(){
+		return not game.colliders(selector).isEmpty()
+	}
+	
+	method puedeSeleccionar(){
+		return self.hayUnaPieza() && tableroActual.puedeSeleccionar()
+	}
+	
+	method puedePoner(){
+		return self.puedePonerPieza() && tableroActual.puedePoner()
+	}
+	
+	method puedePonerPieza(){
+		return game.colliders(selector).size() == 2
+	}
+	
+	method seleccionarPieza(){
+		tableroActual = tableroQuatro
+		jugadorActual = jugadorActual.jugadorRival()
 	}
 	
 	method configurarPiezas(){ 
@@ -149,6 +193,8 @@ object quatro {
 		self.ubicarAEn(piezas, 25, [5, 8, 14, 17])
 		self.ubicarAEn(celdas, 7, new Range(start=7, end=16, step=3))
 		self.crearFilas()
+		game.addVisual(visorBlancoVictorias)
+		game.addVisual(visorNegroVictorias)
 	}
 	
 	method hayEmpate() {

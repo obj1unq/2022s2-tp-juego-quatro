@@ -16,26 +16,20 @@ class Modo{
 	}
 }
 
+
 object libre inherits Modo{
 	
-	method hayUnaPieza(){
-		return not game.colliders(selector).isEmpty()
-	}
-	
 	method validarSeleccionar(){
-		if (quatro.tableroActual() == tableroQuatro or not self.hayUnaPieza()){
+		if (not quatro.puedeSeleccionar()){
 			selector.error("No se puede realizar esta accion")
 		}
 	}
 	
 	method operarConPieza(){
 		self.validarSeleccionar()
-		const jugadorActual = quatro.jugadorActual()
 		
-		quatro.tableroActual(tableroQuatro)
-		quatro.jugadorActual(jugadorActual.jugadorRival())
+		quatro.seleccionarPieza()
 		seleccionado.seleccionarPieza()
-		selector.state(seleccionado)
 	}
 }
 
@@ -48,6 +42,7 @@ object seleccionado inherits Modo{
 		quatro.jugadorActual().removerPieza(pieza)
 		selector.position(quatro.tableroActual().coordenadaInicial())
 		pieza.position(selector.position())
+		selector.state(self)
 	}
 	
 	override method mover(direccion){
@@ -56,14 +51,9 @@ object seleccionado inherits Modo{
 	}
 	
 	method validarPoner(){
-		//***** Revisar Warning *****
-		if (quatro.tableroActual() != tableroQuatro or not self.puedePoner()){
+		if (not quatro.puedePoner()){
 			selector.error("No se puede poner")
 		}
-	}
-	
-	method puedePoner(){
-		return game.colliders(selector).size() == 2
 	}
 	
 	method operarConPieza(){
