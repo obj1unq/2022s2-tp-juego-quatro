@@ -16,7 +16,7 @@ Estado Inicial del Juego - Quatro
 [![quatro-ganador-blanco.png](https://i.postimg.cc/C5Yt2CLR/quatro-ganador-blanco.png)](https://postimg.cc/gXSNXZhp)
 Jugador Blanco Ganador
 
-[![quatro-juego-empatado.png](https://i.postimg.cc/Zncgz9CV/quatro-juego-empatado.png)](https://postimg.cc/8f7whzd6)
+[![quatro-juego-empatado.png](https://i.postimg.cc/qqKJcHM8/quatro-juego-empatado.png)](https://postimg.cc/y3VCB5Rd)
 Empate del Juego
 
 ## Reglas de Juego / Instrucciones
