@@ -22,7 +22,7 @@ Empate del Juego
 
 ## Reglas de Juego / Instrucciones
 
-El Quatro es un juego abstracto de estrategia por turnos, creado por el matemático suizo Blaise Muller. Se trata de un juego de estrategia por turnos, para dos personas. Es conceptualmente muy sencillo, pero tiene una enorme cantidad de posibilidades. 
+El Quatro es un juego abstracto de estrategia por turnos para dos personas, creado por el matemático suizo Blaise Muller. Es conceptualmente muy sencillo, pero tiene una enorme cantidad de posibilidades. 
 Las 16 piezas del juego tienen 4 atributos distintos: altura (alta o baja), color (blanca o negra), forma (cilíndrica o cuadrada) y aspecto (lisa o tallada) . El objetivo del juego es alinear 4 piezas con al menos una característica común. El problema es que uno no elige las piezas que va a jugar,  ¡tu rival las elige por vos!
 
 ## Composición
