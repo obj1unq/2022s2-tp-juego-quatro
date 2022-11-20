@@ -10,14 +10,13 @@
 - Jacobsen, Martín Ángel
 
 ## Capturas
-
-[url=https://postimg.cc/vDjNsv4G][img]https://i.postimg.cc/vDjNsv4G/quatro-estado-inicial-juego.png[/img][/url] 
+[![quatro-estado-inicial-juego.png](https://i.postimg.cc/26nMT9mp/quatro-estado-inicial-juego.png)](https://postimg.cc/0M2VyfbZ)
 Estado Inicial del Juego - Quatro
 
-[url=https://postimg.cc/Bj5Y29Mv][img]https://i.postimg.cc/Bj5Y29Mv/quatro-ganador-blanco.png[/img][/url]
+[![quatro-ganador-blanco.png](https://i.postimg.cc/C5Yt2CLR/quatro-ganador-blanco.png)](https://postimg.cc/gXSNXZhp)
 Jugador Blanco Ganador
 
-[url=https://postimg.cc/G4ngBhPN][img]https://i.postimg.cc/G4ngBhPN/quatro-juego-empatado.png[/img][/url]
+[![quatro-juego-empatado.png](https://i.postimg.cc/Zncgz9CV/quatro-juego-empatado.png)](https://postimg.cc/8f7whzd6)
 Empate del Juego
 
 ## Reglas de Juego / Instrucciones
