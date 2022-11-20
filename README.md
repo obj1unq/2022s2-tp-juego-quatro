@@ -6,8 +6,9 @@
 
 - Carro, Nahuel Agustín
 - Cortizas, Margarita
-- Martínez, Lucas Javier
 - Jacobsen, Martín Ángel
+- Martínez, Lucas Javier
+
 
 ## Capturas
 [![quatro-estado-inicial-juego.png](https://i.postimg.cc/26nMT9mp/quatro-estado-inicial-juego.png)](https://postimg.cc/0M2VyfbZ)
