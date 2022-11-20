@@ -23,17 +23,19 @@ Empate del Juego
 ## Reglas de Juego / Instrucciones
 
 El Quatro es un juego abstracto de estrategia por turnos para dos personas, creado por el matemático suizo Blaise Muller. Es conceptualmente muy sencillo, pero tiene una enorme cantidad de posibilidades. 
-Las 16 piezas del juego tienen 4 atributos distintos: altura (alta o baja), color (blanca o negra), forma (cilíndrica o cuadrada) y aspecto (lisa o tallada) . El objetivo del juego es alinear 4 piezas con al menos una característica común. El problema es que uno no elige las piezas que va a jugar,  ¡tu rival las elige por vos!
+Las 16 piezas del juego tienen 4 atributos distintos: -altura (alta o baja), color (blanca o negra), forma (cilíndrica o cuadrada) y aspecto (lisa o tallada) . El objetivo del juego es alinear 4 piezas con al menos una característica común. El problema es que uno no elige las piezas que va a jugar,  ¡tu rival las elige por vos!
 
 ## Composición
 
 El juego se compone de:
 - Un tablero de 16 casillas (4*4)
 - 16 peones diferenciables por 4 características:
-        El color - blanca / negra
-        La altura - alta / baja
-        El aspecto - lisa / tallada
-        La forma - cuadrada / cilíndrica
+
+- El color - blanca / negra
+- La altura - alta / baja
+- El aspecto - lisa / tallada
+- La forma - cuadrada / cilíndrica
+
 Todas las combinaciones (ejemplo: grande, clara, agujereada y cilíndrica) están representadas, y una sola vez cada una.
 
 ## Otros
