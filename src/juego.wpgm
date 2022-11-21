@@ -6,10 +6,10 @@ program juego {
 	emkay.shouldLoop(true)
 	emkay.volume(1)
 	game.schedule(100, {emkay.play()})
-	
+		
 	game.title("Quatro")
 	game.boardGround("tablero.png")
-
+	
 	game.width(40)
 	game.height(24)
 	game.cellSize(35)
