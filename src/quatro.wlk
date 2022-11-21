@@ -6,6 +6,7 @@ import tablero.*
 import selector.*
 import configuracion.*
 import caracteristicas.*
+import niveles.*
 import wollok.game.*
 
 object fondoPortada {
@@ -24,14 +25,24 @@ object quatro {
 	const piezas = (1..16).map( { n=> new Pieza() } )
 	const celdas = (1..16).map( { n=> new Celda() } )
 	var indice = 0
+	var nivel = nivel1
 	
 	method celdas() = celdas
 	method verificarSiHayGanador(){
 		if (self.hayFilaGanadora() or self.hayEmpate()) {
-			jugadorActual.sumarVictoria()
-			self.finalizarJuego(self.mensajeDelFin())
+			nivel.sumarVictoria(jugadorActual)
+			self.finalizarJuego(nivel.mensajeDelFin(jugadorActual))
+			self.pasarDeNivel()
 			self.verificarFinDelJuego()
 			self.activarReiniciarJuego()
+		}
+	}
+	
+	
+	
+	method pasarDeNivel(){
+		if (jugadorActual.puedePasarDeNivel(nivel)){
+			nivel = nivel.siguiente()
 		}
 	}
 	
@@ -41,10 +52,7 @@ object quatro {
 		}
 	}
 	
-	method mensajeDelFin(){
-		return if (self.hayFilaGanadora()) "ganadore-" + jugadorActual.nombre() else "empate"
-	}
-	
+
 	method activarReiniciarJuego(){
 		keyboard.r().onPressDo( { game.schedule(500, {self.reiniciarJuego()})} )
 	}
@@ -62,13 +70,7 @@ object quatro {
 		fondoPortada.estado(estado)
 		game.addVisual(fondoPortada)
 	}
-	// **** Preguntar al profesor si de esta manera se puede hacer ****
-	// En caso de que este metodo esté permitido tenemos que eliminar el atributo cantidadPiezas de la clase jugador, y el método
-	// hayEmpate()
-	
-	method esEmpate_2() {
-		return not self.hayFilaGanadora() && filas.all({fila => fila.esFilaCompleta()})
-	}
+
 	
 	method hayFilaGanadora(){
 		return filas.any({ fila => fila.esVictoria() })
@@ -188,6 +190,7 @@ object quatro {
 	}
 	
 	method iniciar(){
+		game.addVisual(nivel)
 		self.configurarPiezas()
 		self.agregarVisualizaciones()
 		self.ubicarAEn(piezas, 25, [5, 8, 14, 17])
