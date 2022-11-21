@@ -8,6 +8,7 @@ class Jugador{
 	var victorias = 0
 	
 	method victorias() = victorias
+	
 	method sumarVictoria() {
 		if (quatro.hayFilaGanadora()){
 			victorias += 1
@@ -28,6 +29,12 @@ class Jugador{
 	method add(pieza){
 		piezas.add(pieza)
 	}
+	
+	method jugadorRival()
+	
+	method puedePasarDeNivel(nivel){
+		return victorias + self.jugadorRival().victorias() == nivel.victoriasRequeridas()
+	}
 }
 
 object jugadorBlanco inherits Jugador{
@@ -35,7 +42,7 @@ object jugadorBlanco inherits Jugador{
 		tableroRival = tableroNegras
 	}
 	
-	method jugadorRival() = jugadorNegro
+	override method jugadorRival() = jugadorNegro
 	
 	method nombre() = "blanco"
 }
@@ -45,6 +52,6 @@ object jugadorNegro inherits Jugador{
 		tableroRival = tableroBlancas
 	}
 	
-	method jugadorRival() = jugadorBlanco
+	override method jugadorRival() = jugadorBlanco
 	method nombre() = "negro"
 }

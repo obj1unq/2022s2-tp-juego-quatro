@@ -1,8 +1,8 @@
 import wollok.game.*
-import configuracion.*
+import niveles.*
 
 program juego {
-	game.title("Quarto")
+	game.title("Quatro")
 	game.boardGround("tablero.png")
 	game.width(40)
 	game.height(24)

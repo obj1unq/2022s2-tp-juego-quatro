@@ -18,17 +18,6 @@ object configuracion {
 	
 }
 
-object nivel1{
-	method iniciar(){
-		tableroQuatro.iniciarCoordenadas()
-		tableroNegras.iniciarCoordenadas()
-		tableroBlancas.iniciarCoordenadas()
-		jugadorBlanco.iniciar()
-		jugadorNegro.iniciar()
-		quatro.iniciar()
-		configuracion.configurarTeclas()
-	}
-}
 
 class Visor{
 	method jugador()
