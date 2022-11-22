@@ -1,12 +1,27 @@
 import wollok.game.*
 import niveles.*
 
+object sonido{
+	var volumen = 1
+	const pasoDelVolumen = 0.1
+	
+	method bajarVolumenA(musica){
+		volumen = (volumen - pasoDelVolumen).max(0)
+		musica.volume(volumen)
+	}
+	
+	method subirVolumenA(musica){
+		volumen = (volumen + pasoDelVolumen).min(1)
+		musica.volume(volumen)
+	}
+}
+
 program juego {
 	const emkay = game.sound("emkay.ogg")
 	emkay.shouldLoop(true)
 	emkay.volume(0.5)
-	keyboard.minusKey().onPressDo({emkay.volume(0)})
-	keyboard.plusKey().onPressDo({emkay.volume(1)})
+	keyboard.minusKey().onPressDo({sonido.bajarVolumenA(emkay)})
+	keyboard.plusKey().onPressDo({sonido.subirVolumenA(emkay)})
 	keyboard.p().onPressDo({emkay.pause()})
 	keyboard.space().onPressDo({emkay.resume()})
 	keyboard.s().onPressDo({emkay.stop()})
