@@ -17,15 +17,15 @@ object sonido{
 }
 
 program juego {
-	const emkay = game.sound("emkay.ogg")
+	const daftBit = game.sound("get-Lucky-8Bits.mp3")
 	emkay.shouldLoop(true)
 	emkay.volume(0.5)
-	keyboard.minusKey().onPressDo({sonido.bajarVolumenA(emkay)})
-	keyboard.plusKey().onPressDo({sonido.subirVolumenA(emkay)})
-	keyboard.p().onPressDo({emkay.pause()})
-	keyboard.space().onPressDo({emkay.resume()})
-	keyboard.s().onPressDo({emkay.stop()})
-	game.schedule(100, {emkay.play()})
+	keyboard.minusKey().onPressDo({sonido.bajarVolumenA(daftBit)})
+	keyboard.plusKey().onPressDo({sonido.subirVolumenA(daftBit)})
+	keyboard.p().onPressDo({daftBit.pause()})
+	keyboard.space().onPressDo({daftBit.resume()})
+	keyboard.s().onPressDo({daftBit.stop()})
+	game.schedule(100, {daftBit.play()})
 		
 	game.title("Quatro")
 	game.boardGround("tablero.png")
