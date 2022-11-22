@@ -4,12 +4,13 @@ import niveles.*
 program juego {
 	const emkay = game.sound("emkay.ogg")
 	emkay.shouldLoop(true)
-	emkay.volume(1)
+	emkay.volume(0.5)
+	keyboard.minusKey().onPressDo({emkay.volume(1)})
+	keyboard.plusKey().onPressDo({emkay.volume(0)})
 	game.schedule(100, {emkay.play()})
 		
 	game.title("Quatro")
 	game.boardGround("tablero.png")
-	
 	game.width(40)
 	game.height(24)
 	game.cellSize(35)
