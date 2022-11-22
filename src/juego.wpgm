@@ -18,8 +18,8 @@ object sonido{
 
 program juego {
 	const daftBit = game.sound("get-Lucky-8Bits.mp3")
-	emkay.shouldLoop(true)
-	emkay.volume(0.5)
+	daftBit.shouldLoop(true)
+	daftBit.volume(0.5)
 	keyboard.minusKey().onPressDo({sonido.bajarVolumenA(daftBit)})
 	keyboard.plusKey().onPressDo({sonido.subirVolumenA(daftBit)})
 	keyboard.p().onPressDo({daftBit.pause()})
