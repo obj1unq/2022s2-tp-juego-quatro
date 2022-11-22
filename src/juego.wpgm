@@ -7,6 +7,9 @@ program juego {
 	emkay.volume(0.5)
 	keyboard.minusKey().onPressDo({emkay.volume(0)})
 	keyboard.plusKey().onPressDo({emkay.volume(1)})
+	keyboard.p().onPressDo({emkay.pause()})
+	keyboard.space().onPressDo({emkay.resume()})
+	keyboard.s().onPressDo({emkay.stop()})
 	game.schedule(100, {emkay.play()})
 		
 	game.title("Quatro")
