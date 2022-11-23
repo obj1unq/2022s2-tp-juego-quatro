@@ -1,27 +1,44 @@
 import wollok.game.*
 import niveles.*
 
-object sonido{
-	var volumen = 1
-	const pasoDelVolumen = 0.1
+object daftBit{
+	const cancion = game.sound("get-Lucky-8Bits.mp3")
+	var volumen = 0.6
+	const pasoDelVolumen = 0.2
 	
-	method bajarVolumenA(musica){
+	method bajarVolumen(){
 		volumen = (volumen - pasoDelVolumen).max(0)
-		musica.volume(volumen)
+		cancion.volume(volumen)
 	}
 	
-	method subirVolumenA(musica){
+	method subirVolumen(){
 		volumen = (volumen + pasoDelVolumen).min(1)
-		musica.volume(volumen)
+		cancion.volume(volumen)
+	}
+	
+	method play(){
+		cancion.shouldLoop(true)
+		cancion.volume(volumen)
+		cancion.play()
+	}
+	
+	method pause(){
+		cancion.pause()
+	}
+	
+	method resume(){
+		cancion.resume()
+	}
+	
+	method stop(){
+		cancion.stop()
 	}
 }
 
 program juego {
-	const daftBit = game.sound("get-Lucky-8Bits.mp3")
-	daftBit.shouldLoop(true)
-	daftBit.volume(0.5)
-	keyboard.minusKey().onPressDo({sonido.bajarVolumenA(daftBit)})
-	keyboard.plusKey().onPressDo({sonido.subirVolumenA(daftBit)})
+	
+	keyboard.minusKey().onPressDo({daftBit.bajarVolumen()})
+	keyboard.plusKey().onPressDo({daftBit.subirVolumen()})
 	keyboard.p().onPressDo({daftBit.pause()})
 	keyboard.space().onPressDo({daftBit.resume()})
 	keyboard.s().onPressDo({daftBit.stop()})
