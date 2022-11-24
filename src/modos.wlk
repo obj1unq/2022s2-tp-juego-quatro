@@ -52,7 +52,7 @@ object seleccionado inherits Modo{
 	
 	method validarPoner(){
 		if (not quatro.puedePoner()){
-			selector.error("No se puede poner")
+			selector.error("No se puede realizar esta accion")
 		}
 	}
 	
@@ -60,11 +60,8 @@ object seleccionado inherits Modo{
 		self.validarPoner()
 		self.ponerPiezaEnCelda()
 		pieza = nullPieza
-		const jugadorActual = quatro.jugadorActual()
-		quatro.tableroActual(jugadorActual.tableroRival())
-		quatro.verificarSiHayGanador()
-		selector.position(quatro.tableroActual().coordenadaInicial())
-		selector.state(libre)
+		quatro.ponerPieza()
+		selector.ponerPieza()
 	}
 	
 	method ponerPiezaEnCelda(){

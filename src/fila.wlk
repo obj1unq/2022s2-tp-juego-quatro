@@ -10,7 +10,7 @@ class Fila{
 	
 	method validarCeldas(_celdas){
 		if (_celdas.size() != tamanioDeCelda){
-			self.error("No puedo tener menos de 4 celdas")
+			self.error("El tamaño debe ser de 4 celdas")
 		}
 	}
 	
