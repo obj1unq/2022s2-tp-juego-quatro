@@ -50,3 +50,7 @@ Todas las combinaciones (ejemplo: grande, clara, agujereada y cilíndrica) está
 - Curso/Facultad
 - Versión de wollok
 - Una vez terminado, no tenemos problemas en que el repositorio sea público.
+
+# Team Quatro 
+[![quatro-team.png](https://i.postimg.cc/Ghc2XgkY/quatro-team.png)](https://postimg.cc/kDpq4cYX)
+
