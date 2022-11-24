@@ -71,7 +71,9 @@ object quatro {
 	
 
 	method activarReiniciarJuego(){
+		if (not jugadorActual.esGanador()){
 		keyboard.r().onPressDo( { game.schedule(500, {self.reiniciarJuego()})} )
+		}
 	}
 	
 	method reiniciarJuego(){
