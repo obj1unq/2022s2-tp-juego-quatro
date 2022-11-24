@@ -9,11 +9,11 @@ class Direccion{
 	}
 	
 	method nuevoX(xAMover){
-		return xAMover.max(quatro.tableroActual().ejeXMinimo()).min(quatro.tableroActual().ejeXMaximo())
+		return xAMover.max(quatro.ejeXMinimo()).min(quatro.ejeXMaximo())
 	}
 	
 	method nuevoY(yAMover){
-		return yAMover.max(quatro.tableroActual().ejeYMinimo()).min(quatro.tableroActual().ejeYMaximo())
+		return yAMover.max(quatro.ejeYMinimo()).min(quatro.ejeYMaximo())
 	}
 }
 

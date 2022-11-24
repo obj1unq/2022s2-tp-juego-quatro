@@ -16,7 +16,7 @@ class Pieza {
 	
 	method validarCaracteristicas(_caracteristicas){
 		if (_caracteristicas.size() != tamanioDeCaracteristicas){
-			self.error("No puedo tener menos de" + tamanioDeCaracteristicas +  "caracteristicas")
+			self.error("El tamaño debe ser de " + tamanioDeCaracteristicas +  " caracteristicas")
 		}
 	}
 	

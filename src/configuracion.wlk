@@ -1,9 +1,9 @@
 import quatro.*
 import tablero.*
 import jugador.*
+import daftbit.*
 import selector.*
 import direcciones.*
-
 import wollok.game.*
 
 object configuracion {
@@ -14,6 +14,11 @@ object configuracion {
 		keyboard.up().onPressDo( { selector.mover(arriba) }  )
 		keyboard.down().onPressDo( { selector.mover(abajo) }  )
 		keyboard.enter().onPressDo( {quatro.operarConPieza()} )
+		keyboard.minusKey().onPressDo({daftBit.bajarVolumen()})
+		keyboard.plusKey().onPressDo({daftBit.subirVolumen()})
+		keyboard.p().onPressDo({daftBit.pause()})
+		keyboard.space().onPressDo({daftBit.resume()})
+		keyboard.s().onPressDo({daftBit.stop()})
 	}	
 	
 }

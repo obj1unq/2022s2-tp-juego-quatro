@@ -38,7 +38,24 @@ object quatro {
 		}
 	}
 	
+	method coordenadaInicial(){
+		return tableroActual.coordenadaInicial()
+	}
+	method ejeXMinimo(){
+		return tableroActual.ejeXMinimo()
+	}
 	
+	method ejeXMaximo(){
+		return tableroActual.ejeXMaximo()
+	}
+	
+	method ejeYMinimo(){
+		return tableroActual.ejeYMinimo()
+	}
+	
+	method ejeYMaximo(){
+		return tableroActual.ejeYMaximo()
+	}
 	
 	method pasarDeNivel(){
 		if (jugadorActual.puedePasarDeNivel(nivel)){
@@ -99,6 +116,11 @@ object quatro {
 	method seleccionarPieza(){
 		tableroActual = tableroQuatro
 		jugadorActual = jugadorActual.jugadorRival()
+	}
+	
+	method ponerPieza(){
+		tableroActual = jugadorActual.tableroRival()
+		self.verificarSiHayGanador()
 	}
 	
 	method configurarPiezas(){ 

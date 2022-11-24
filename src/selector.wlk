@@ -17,4 +17,9 @@ object selector{
 	method operarConPieza(){
 		state.operarConPieza()
 	}
+	
+	method ponerPieza(){
+		position = quatro.coordenadaInicial()
+		state = libre
+	}
 }
