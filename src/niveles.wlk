@@ -8,7 +8,7 @@ import wollok.game.*
 
 class Nivel{
 	
-	var position = game.at(4,22)
+	const position = game.at(4,22)
 	
 	method iniciar(){
 		tableroQuatro.iniciarCoordenadas()
