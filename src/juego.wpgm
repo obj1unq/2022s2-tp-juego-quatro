@@ -1,6 +1,8 @@
 import wollok.game.*
 import niveles.*
 import daftbit.*
+import quatro.*
+import fondos.*
 
 program juego {
 			
@@ -12,6 +14,7 @@ program juego {
 	
 	nivel1.iniciar()
 	game.schedule(100, {daftBit.play()})
+	game.schedule(100, {fondoInstrucciones.showHide()})
 	
 	game.start()
 }

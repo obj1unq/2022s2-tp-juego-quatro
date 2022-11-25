@@ -5,6 +5,7 @@ import daftbit.*
 import selector.*
 import direcciones.*
 import wollok.game.*
+import fondos.*
 
 object configuracion {
 	
@@ -19,7 +20,9 @@ object configuracion {
 		keyboard.p().onPressDo({daftBit.pause()})
 		keyboard.space().onPressDo({daftBit.resume()})
 		keyboard.s().onPressDo({daftBit.stop()})
-	}	
+		keyboard.i().onPressDo({fondoInstrucciones.showHide()})
+	}
+	
 	
 }
 

@@ -8,15 +8,7 @@ import configuracion.*
 import caracteristicas.*
 import niveles.*
 import wollok.game.*
-
-object fondoPortada {
-
-	var property position = game.at(20, 11)
-	var property estado = ""
-
-	method image() = "quatro-" + estado + ".png"
-
-}
+import fondos.*
 
 object quatro {
 	var property filas = #{}
@@ -72,7 +64,7 @@ object quatro {
 
 	method activarReiniciarJuego(){
 		if (not jugadorActual.esGanador()){
-		keyboard.r().onPressDo( { game.schedule(500, {self.reiniciarJuego()})} )
+			keyboard.r().onPressDo( { game.schedule(500, {self.reiniciarJuego()})} )
 		}
 	}
 	
@@ -226,7 +218,6 @@ object quatro {
 	
 	method hayEmpate() {
 		return not self.hayFilaGanadora() && jugadorActual.sinFichas() && jugadorActual.jugadorRival().sinFichas()
-	}
-	
+	}	
 	
 }
