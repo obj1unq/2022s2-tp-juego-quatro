@@ -12,9 +12,9 @@ object fondoPortada {
 object fondoInstrucciones {
 	
 	var property modo = manualEnPantalla
-	var property position = game.at(20, 11)
+	var property position = game.at(2, 2)
 	
-	method image() = "quatro-ganadore.png"
+	method image() = "quatro-instrucciones.png"
 	
 	method showHide() {
 		modo.showHide()

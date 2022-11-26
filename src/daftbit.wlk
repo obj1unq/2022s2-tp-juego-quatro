@@ -2,7 +2,7 @@ import wollok.game.*
 
 object daftBit{
 	const cancion = game.sound("get-Lucky-8Bits.mp3")
-	var volumen = 0.6
+	var volumen = 0.2
 	const pasoDelVolumen = 0.2
 	
 	method bajarVolumen(){
