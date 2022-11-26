@@ -20,6 +20,9 @@ Jugador Blanco Ganador
 [![quatro-juego-empatado.png](https://i.postimg.cc/9Qnbd7Tv/quatro-juego-empatado.png)](https://postimg.cc/yD00BWLP)
 Empate del Juego
 
+[![quatro-instrucciones.png](https://i.postimg.cc/Pq2yxW79/quatro-instrucciones.png)](https://postimg.cc/d7ZrNywj)
+Instrucciones del Juego
+
 ## Reglas de Juego / Instrucciones
 
 El Quatro es un juego abstracto de estrategia por turnos para dos personas, creado por el matemático suizo Blaise Muller. Es conceptualmente muy sencillo, pero tiene una enorme cantidad de posibilidades. 
