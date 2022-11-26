@@ -4,6 +4,11 @@ import fila.*
 import quatro.*
 import caracteristicas.*
 import jugador.*
+import wollok.game.*
+import niveles.*
+import direcciones.*
+import selector.*
+import tablero.*
 
 describe "pruebas de esVictoria"{
 	
@@ -58,7 +63,7 @@ describe "pruebas de esVictoria"{
 		piezas.get(14).caracteristicas([negra, tallada, cilindrica, alta])
 		piezas.get(15).caracteristicas([negra, tallada, cuadrada, alta])
 		
-		
+		game.clear()
 	}
 	
 	test "test donde hay coindencias de caracteristiscas y hay victoria" {
@@ -141,6 +146,69 @@ describe "pruebas de esVictoria"{
 		jugadorBlanco.piezas(#{})
 		jugadorNegro.piezas(#{})
 		assert.that(quatro.hayEmpate())
+	}
+	
+	test "hay una celda con ficha y no se puede agregar una nueva en la misma" {
+		
+		nivel1.iniciar()
+		(1..3).forEach({n => quatro.operarConPieza()})
+		assert.throwsException({quatro.operarConPieza()})
+		
+	}
+	
+	test "El jugador blanco suma una victoria luego de ganar la primer partida" {
+		nivel1.iniciar()
+		(1..3).forEach({n => quatro.operarConPieza()})
+		selector.mover(derecha)
+		quatro.operarConPieza()
+		selector.mover(derecha)
+		quatro.operarConPieza()
+		selector.mover(derecha)
+		selector.mover(derecha)
+		quatro.operarConPieza()
+		selector.mover(derecha)
+		quatro.operarConPieza()
+		(1..3).forEach({n => selector.mover(derecha)})
+		quatro.operarConPieza()
+		
+		assert.equals(1,jugadorBlanco.victorias())
+	}
+	
+	test "El selector no puede salir del tablero si asi se desea" {
+		
+		nivel1.iniciar()
+		quatro.operarConPieza()
+		selector.mover(izquierda)
+		selector.mover(izquierda)
+		
+		assert.equals(game.at(7,7),selector.position())
+	}
+	
+	test "Luego de seleccionar una ficha, el tablero actual es TableroQuatro" {
+		
+		nivel1.iniciar()
+		quatro.operarConPieza()
+		assert.equals(tableroQuatro, quatro.tableroActual())
+		
+	}
+	
+	test "No se puede seleccionar una ficha donde no la hay" {
+		
+		nivel1.iniciar()
+		(1..3).forEach({n => quatro.operarConPieza()})
+		selector.mover(derecha)
+		quatro.operarConPieza()
+		assert.throwsException({quatro.operarConPieza()})
+		
+	}
+	
+	test "Luego de que ambos jugadores realicen varios movimientos, el jugadorBlanco pasa a ser
+		el jugador actual" {
+		nivel1.iniciar()
+		(1..3).forEach({n => quatro.operarConPieza()})
+		selector.mover(derecha)
+		quatro.operarConPieza()
+		assert.equals(jugadorBlanco, quatro.jugadorActual())
 	}
 }
 
