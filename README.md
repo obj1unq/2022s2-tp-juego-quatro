@@ -11,13 +11,13 @@
 
 
 ## Capturas
-[![quatro-estado-inicial-juego.png](https://i.postimg.cc/4ykFz9CJ/quatro-estado-inicial-juego.png)](https://postimg.cc/8J4HGsP3)
+[![quatro-estado-inicial-juego.png](https://i.postimg.cc/vBLBb224/quatro-estado-inicial-juego.png)](https://postimg.cc/bDr8RghP)
 Estado Inicial del Juego - Quatro
 
-[![quatro-ganador-blanco.png](https://i.postimg.cc/HWw6qjDy/quatro-ganador-blanco.png)](https://postimg.cc/NL08Ts0s)
+[![quatro-ganador-blanco.png](https://i.postimg.cc/Wbt2H4VF/quatro-ganador-blanco.png)](https://postimg.cc/cryyK0r0)
 Jugador Blanco Ganador
 
-[![quatro-juego-empatado.png](https://i.postimg.cc/9Qnbd7Tv/quatro-juego-empatado.png)](https://postimg.cc/yD00BWLP)
+[![quatro-juego-empatado.png](https://i.postimg.cc/y8LhP2JL/quatro-juego-empatado.png)](https://postimg.cc/FYJJFWVS)
 Empate del Juego
 
 [![quatro-instrucciones.png](https://i.postimg.cc/Pq2yxW79/quatro-instrucciones.png)](https://postimg.cc/d7ZrNywj)
