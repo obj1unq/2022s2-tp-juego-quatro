@@ -1,3 +1,4 @@
+import quatro.*
 import wollok.game.*
 
 object fondoPortada {
@@ -54,4 +55,10 @@ object manualEscondido {
 		return manualEnPantalla
 	}
 	
+}
+
+object fondoTurno {
+	const position = game.at(13, 22)
+	method position() = position
+	method image() = "quatro-turno-" + quatro.nombreJugadorActual() + ".png"
 }
