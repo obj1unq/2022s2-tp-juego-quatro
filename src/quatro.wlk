@@ -30,6 +30,10 @@ object quatro {
 		}
 	}
 	
+	method nombreJugadorActual(){
+		return jugadorActual.nombre()
+	}
+	
 	method coordenadaInicial(){
 		return tableroActual.coordenadaInicial()
 	}
@@ -214,6 +218,7 @@ object quatro {
 		self.crearFilas()
 		game.addVisual(visorBlancoVictorias)
 		game.addVisual(visorNegroVictorias)
+		game.addVisual(fondoTurno)
 	}
 	
 	method hayEmpate() {
