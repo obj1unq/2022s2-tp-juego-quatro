@@ -1,4 +1,3 @@
-// Va a haber 10 filas que son las posibles ganadoras
 class Fila{
 	var celdas = #{}
 	const tamanioDeCelda = 4

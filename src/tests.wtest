@@ -25,13 +25,6 @@ describe "pruebas de esVictoria"{
 	
 	const piezas = (1..16).map( { n=> new Pieza() } )
 	const celdas = (1..16).map( { n=> new Celda() } )
-	
-	// Instancias de filas
-	
-	const fila_1 = new Fila(celdas=#{celdas.get(0), celdas.get(1), celdas.get(2), celdas.get(3)})
-	const fila_2 = new Fila(celdas=#{celdas.get(4), celdas.get(5), celdas.get(6), celdas.get(7)})
-	const fila_3 = new Fila(celdas=#{celdas.get(8), celdas.get(9), celdas.get(10), celdas.get(11)})
-	const fila_4 = new Fila(celdas=#{celdas.get(12), celdas.get(13), celdas.get(14), celdas.get(15)})
 		
 	
 	method initialize(){		
@@ -148,7 +141,7 @@ describe "pruebas de esVictoria"{
 		assert.that(quatro.hayEmpate())
 	}
 	
-	test "hay una celda con ficha y no se puede agregar una nueva en la misma" {
+	test "hay una celda con pieza y no se puede agregar una nueva en la misma" {
 		
 		nivel1.iniciar()
 		(1..3).forEach({n => quatro.operarConPieza()})
@@ -160,6 +153,10 @@ describe "pruebas de esVictoria"{
 		nivel1.iniciar()
 		(1..3).forEach({n => quatro.operarConPieza()})
 		selector.mover(derecha)
+		// Validamos que al seleccionar las piezas se le remueven a los jugadores
+		assert.equals(7,jugadorBlanco.piezas().size())
+		assert.equals(7,jugadorNegro.piezas().size())
+		
 		quatro.operarConPieza()
 		selector.mover(derecha)
 		quatro.operarConPieza()
@@ -170,7 +167,6 @@ describe "pruebas de esVictoria"{
 		quatro.operarConPieza()
 		(1..3).forEach({n => selector.mover(derecha)})
 		quatro.operarConPieza()
-		
 		assert.equals(1,jugadorBlanco.victorias())
 	}
 	
@@ -184,7 +180,7 @@ describe "pruebas de esVictoria"{
 		assert.equals(game.at(7,7),selector.position())
 	}
 	
-	test "Luego de seleccionar una ficha, el tablero actual es TableroQuatro" {
+	test "Luego de seleccionar una pieza, el tablero actual es TableroQuatro" {
 		
 		nivel1.iniciar()
 		quatro.operarConPieza()
@@ -192,7 +188,7 @@ describe "pruebas de esVictoria"{
 		
 	}
 	
-	test "No se puede seleccionar una ficha donde no la hay" {
+	test "No se puede seleccionar una pieza donde no la hay" {
 		
 		nivel1.iniciar()
 		(1..3).forEach({n => quatro.operarConPieza()})
@@ -205,9 +201,13 @@ describe "pruebas de esVictoria"{
 	test "Luego de que ambos jugadores realicen varios movimientos, el jugadorBlanco pasa a ser
 		el jugador actual" {
 		nivel1.iniciar()
-		(1..3).forEach({n => quatro.operarConPieza()})
+		(1..2).forEach({n => quatro.operarConPieza()})
+		// verifica que el que selecciona las piezas del jugador Blanco es el jugador Negro
+		assert.equals(jugadorNegro, quatro.jugadorActual())
+		quatro.operarConPieza()
 		selector.mover(derecha)
 		quatro.operarConPieza()
+		// verifica que el que selecciona las piezas del jugador Negro es el jugador Rival es decir, el jugador Blanco
 		assert.equals(jugadorBlanco, quatro.jugadorActual())
 	}
 }
