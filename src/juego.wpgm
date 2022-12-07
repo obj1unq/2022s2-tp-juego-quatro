@@ -1,8 +1,20 @@
 import wollok.game.*
-import pepita.*
+import niveles.*
+import daftbit.*
+import quatro.*
+import fondos.*
 
 program juego {
-	game.title("Juego Base")
-	game.addVisual(pepita)
+			
+	game.title("Quatro")
+	game.boardGround("tablero.png")
+	game.width(40)
+	game.height(24)
+	game.cellSize(35)
+	
+	nivel1.iniciar()
+	game.schedule(100, {daftBit.play()})
+	game.schedule(100, {fondoInstrucciones.showHide()})
+	
 	game.start()
 }
