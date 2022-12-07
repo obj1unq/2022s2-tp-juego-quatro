@@ -60,14 +60,17 @@ object quatro {
 	}
 	
 	method verificarFinDelJuego(){
-		if (jugadorActual.esGanador()){
+		if (self.hayGanadorDelJuego()){
 			game.schedule(2000, {game.stop()})
 		}
 	}
 	
+	method hayGanadorDelJuego(){
+		return jugadorBlanco.esGanador() or jugadorNegro.esGanador()
+	}
 
 	method activarReiniciarJuego(){
-		if (not jugadorActual.esGanador()){
+		if (not self.hayGanadorDelJuego()){
 			keyboard.r().onPressDo( { game.schedule(500, {self.reiniciarJuego()})} )
 		}
 	}

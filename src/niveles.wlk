@@ -71,7 +71,7 @@ object nivel2 inherits Nivel{
 	}
 	
 	override method siguiente(){
-		return #{nivel1,self}.anyOne()
+		return [nivel1,self].anyOne()
 	}
 	override method tipoDeJuego(){
 		return "opuesto"
